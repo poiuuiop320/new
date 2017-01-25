@@ -47,8 +47,6 @@ public class OptionTest extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(contentPane, "hihihihi","hi",JOptionPane.QUESTION_MESSAGE);
 				JOptionPane.showMessageDialog(contentPane, "WARNING_MESSAGE","hi",JOptionPane.WARNING_MESSAGE);
-				JOptionPane.showMessageDialog(contentPane, "PLAIN_MESSAGE","hi",JOptionPane.PLAIN_MESSAGE);
-				JOptionPane.showMessageDialog(contentPane, "ERROR_MESSAGE","hi",JOptionPane.ERROR_MESSAGE);
 				JOptionPane.showInputDialog(JOptionPane.PLAIN_MESSAGE);
 				JOptionPane.showConfirmDialog(contentPane, JOptionPane.OK_CANCEL_OPTION);
 				Object[] eventCache = null;
