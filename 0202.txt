@@ -1,0 +1,22 @@
+system에서 계정생성 권한 sql파일 exit or quit 로 세팅 
+
+ select * from employees where department_id = 10;
+ select * from employees where department_id = 20;
+select * from employees where salary>=10000;
+select * from employees where last_name='King';
+select * from employees where lower(last_name)='king';
+select * from employees where last_name like 'S%';
+ select * from employees where last_name like '%T%';
+select * from employees where upper(last_name) like '%T%';
+select * from employees where COMMISSION_PCT is not null;
+select * from employees where salary between 7000 and 13000;
+select * from employees where job_id like '%MGR%' ;
+ select * from employees where not department_id=50;
+select * from employees where not upper(last_name) like '%S%';
+select * from employees where salary not between 7000 and 12000;
+ select * from employees where MANAGER_ID is null;
+ select EMPLOYEE_ID,avg(salary) from employees group by EMPLOYEE_ID;
+select department_id, count(*),count(COMMISSION_PCT) from employees group by department_id;
+ select department_id ,max(salary),min(salary) from employees group by department_id;
+select department_id ,avg(salary) from employees group by department_id having avg(salary)>2000;
+select department_id ,trunc(avg(salary)) from employees where salary>4000 group by department_id having avg(salary)>5000;
