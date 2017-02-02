@@ -3,32 +3,33 @@ Oracle Home: C:\oraclexe\app\oracle\product\11.2.0\server\
 Oracle Base:C:\oraclexe\
 
 Port for 'Oracle Database Listener': 1521
-ÀÚ¹Ù¿¬µ¿Æ÷Æ®
+ìë°”ì—°ë™í¬íŠ¸
 
 Port for 'Oracle Services for Microsoft Transaction Server': 2030
 
 
 
 Port for 'Oracle HTTP Listener': 8080
-°ü¸®ÆäÀÌÁö Æ÷Æ® 
+ê´€ë¦¬í˜ì´ì§€ í¬íŠ¸ 
 
-Æ÷Æ®Ãæµ¹ÀÌ ÀÖÀ» ¼ö ÀÖÀ» °æ¿ì ¹Ù²ã¾ß ÇÑ´Ù.
+í¬íŠ¸ì¶©ëŒì´ ìˆì„ ìˆ˜ ìˆì„ ê²½ìš° ë°”ê¿”ì•¼ í•œë‹¤.
 
 sqlplus
 
-¼­ºñ½º ½ÃÀÛ
+ì„œë¹„ìŠ¤ ì‹œì‘
  
 system
 
 Exec DBMS_XDB.SETHTTPPORT(7070);
-Æ÷Æ®º¯°æ
+í¬íŠ¸ë³€ê²½
 
 
 hr/hr
 
 scott/tiger
-
+system/password login then 
 @C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
+exit
 
 
 system->alter user scott identified by tiger;
@@ -41,14 +42,14 @@ show user
 conn hr/hr
 
 conn scott/tiger
-connÀº sql ¿¬°áÈÄ ¾È¿¡¼­ Ä¿³Ø
+connì€ sql ì—°ê²°í›„ ì•ˆì—ì„œ ì»¤ë„¥
 sqlplus hr/hr
 
 sqlplus scott/tiger
-¿ÜºÎ¿¡¼­ Á¢±ÙÇÒ °æ¿ì sqlplus¸¦ »ç¿ë
+ì™¸ë¶€ì—ì„œ ì ‘ê·¼í•  ê²½ìš° sqlplusë¥¼ ì‚¬ìš©
 
 sqlplus scott/tiger@192.168.0.42:1521/orcl
-¿ø°İÁ¢±Ù
+ì›ê²©ì ‘ê·¼
 
 
 select * from tab;
@@ -84,9 +85,9 @@ EMP                  TABLE
 SALGRADE             TABLE
 
 
-col ÄÃ·³ format a±æÀÌ
+col ì»¬ëŸ¼ format aê¸¸ì´
 
-EMP Á¤º¸ ±¸Á¶¸¦ º¸°í½ÍÀ» °æ¿ì
+EMP ì •ë³´ êµ¬ì¡°ë¥¼ ë³´ê³ ì‹¶ì„ ê²½ìš°
 
 desc emp;
 
@@ -114,17 +115,17 @@ select empno,ename,sal*12 from emp;
  from emp
  /
 
- select empno,ename,sal*12 as ¿¬ºÀ from emp;
+ select empno,ename,sal*12 as ì—°ë´‰ from emp;
 
 col yearsal format 9,999,9999
 select empno,ename,sal*12 as yearsal from emp;
 
-distinctÁßº¹Á¦°Å
+distinctì¤‘ë³µì œê±°
 
-select ÄÃ·³
-           ÄÃ·³ ¿¬»ê nvl 
-from Å×ÀÌºí 
-where Á¶°Ç
+select ì»¬ëŸ¼
+           ì»¬ëŸ¼ ì—°ì‚° nvl 
+from í…Œì´ë¸” 
+where ì¡°ê±´
 
 
 from dual;
@@ -193,9 +194,9 @@ where sal between 2000 and 3000;
 * 
 ?
 
-a% a·Î ½ÃÀÛÇÏ´Â °æ¿ì °Ë»ö
+a% aë¡œ ì‹œì‘í•˜ëŠ” ê²½ìš° ê²€ìƒ‰
 
-%a a·Î ³¡³ª´Â °æ¿ì¸¦ °Ë»ö
+%a aë¡œ ëë‚˜ëŠ” ê²½ìš°ë¥¼ ê²€ìƒ‰
 
 &a&
 
@@ -243,7 +244,7 @@ where ename like'%R_%;
 
 SAL*12+NVL(COMM,0)
 
-nvl ÇÔ¼ö  Ä¿¹Ì¼ÇÀÇ null°ªÀ» 0À¸·Î ´ëÃ¼
+nvl í•¨ìˆ˜  ì»¤ë¯¸ì…˜ì˜ nullê°’ì„ 0ìœ¼ë¡œ ëŒ€ì²´
 
  select empno,ename,comm
  from emp
@@ -262,9 +263,9 @@ where mgr is null;
  where name like '%A!_A%' escape'!';
 
 select * from t1
-where name like '%A_A%'; ¾ğ´õ¹Ù°¡ µé¾î°£ ÀÌ¸§ÀÌÀÖ´Ù¸é 
+where name like '%A_A%'; ì–¸ë”ë°”ê°€ ë“¤ì–´ê°„ ì´ë¦„ì´ìˆë‹¤ë©´ 
 
-¹®ÀÚ¶ó°í ÀÎ½ÄÇÏ°í ½ÍÀ» ¶§ escape' ' ¸¦ »ç¿ëÇÑ´Ù.
+ë¬¸ìë¼ê³  ì¸ì‹í•˜ê³  ì‹¶ì„ ë•Œ escape' ' ë¥¼ ì‚¬ìš©í•œë‹¤.
 
 
  select * from t1
@@ -330,17 +331,17 @@ dir/w/p
 
  ed emp.sql
 
-ddlÁ¤ÀÇ¾î  create alter drop
-dmlÁ¶ÀÛ¾î insert update delete
-dclÁ¦¾î¾î grant revoke
-dqlÁúÀÇ¾î select 
-tclÆ®·£Àè¼Ç commit rollback
+ddlì •ì˜ì–´  create alter drop
+dmlì¡°ì‘ì–´ insert update delete
+dclì œì–´ì–´ grant revoke
+dqlì§ˆì˜ì–´ select 
+tclíŠ¸ëœì­ì…˜ commit rollback
 
 
-select	ÄÃ·³,ÄÃ·³2,ÄÃ·³3 as º°Äª
-from	Å×ÀÌºí¸í
+select	ì»¬ëŸ¼,ì»¬ëŸ¼2,ì»¬ëŸ¼3 as ë³„ì¹­
+from	í…Œì´ë¸”ëª…
 where	
-ÄÃ·³ between a and b
+ì»¬ëŸ¼ between a and b
 in ('a','b','c')
 'a' or 'b' or 'c'
 like _ , % 
@@ -397,12 +398,12 @@ SQL> select mod(10,3),mod(2,2),mod(2,0),mod(-10,3)
 
 ABS(n)
 
-Å©±â¸¸ Ç¥ÇöÇÔ 
+í¬ê¸°ë§Œ í‘œí˜„í•¨ 
 
 FLOOR(n)
-³»¸²°ª Ç¥Çö
+ë‚´ë¦¼ê°’ í‘œí˜„
 MOD(n1,n2)
-n1¿¡ ´ëÇÑ ³ª¸ÓÁö°ª
+n1ì— ëŒ€í•œ ë‚˜ë¨¸ì§€ê°’
 
 
  select *
@@ -511,22 +512,22 @@ from dual
 
 select instr('honggildong','gil') from dual;
 
-¹®ÀÚÀÇ À§Ä¡ °Ë»ö
+ë¬¸ìì˜ ìœ„ì¹˜ ê²€ìƒ‰
 
  select instr('honggildonghonggildong','gil',6) from dual;
 SQL> select instr('abcdabcdabcdabcd','a',1,5) from dual;
 
 
- 1  select length('È«±æµ¿'),length('abc')
- 2  ,lengthb('È«±æµ¿'),lengthb('abc')
- 3  ,lengthc('È«±æµ¿'),lengthc('abc')
+ 1  select length('í™ê¸¸ë™'),length('abc')
+ 2  ,lengthb('í™ê¸¸ë™'),lengthb('abc')
+ 3  ,lengthc('í™ê¸¸ë™'),lengthc('abc')
  4* from dual
 
-select length('È«±æµ¿'),length('abc')
-,lengthb('È«±æµ¿'),lengthb('abc')
-,lengthc('È«±æµ¿'),lengthc('abc'),
-length2('È«±æµ¿'),length2('abc'),
-length4('È«±æµ¿'),length4('abc')
+select length('í™ê¸¸ë™'),length('abc')
+,lengthb('í™ê¸¸ë™'),lengthb('abc')
+,lengthc('í™ê¸¸ë™'),lengthc('abc'),
+length2('í™ê¸¸ë™'),length2('abc'),
+length4('í™ê¸¸ë™'),length4('abc')
 from dual
 
 
@@ -537,7 +538,7 @@ select ltrim('========abc d========','=') from dual
 select rtrim(ltrim('========abc d========','='),'=') from dual
 
 
-trim or ·Î Ã£°í »èÁ¦µÊ 
+trim or ë¡œ ì°¾ê³  ì‚­ì œë¨ 
 
 
 select lpad('abcdabcd',20,'*') from dual;
@@ -601,7 +602,7 @@ select replace( 'abcdefghigklmn','b','hi hello') from dual;
 select substr('hong gil dong' ,2,5) from dual;
                                  length
 
-´ë»ó À§Ä¡ °³¼ö
+ëŒ€ìƒ ìœ„ì¹˜ ê°œìˆ˜
 
 
 sysdate
@@ -663,26 +664,26 @@ select sysdate,sysdate+1,sysdate+2 from dual;
 select sysdate,sysdate+1,sysdate+2,sysdate+30 from dual;
 select sysdate,sysdate+1,sysdate+2,sysdate+30,sysdate-30 from dual;
 
-select empno,ename,sysdate-hiredate as ±Ù¹«ÀÏ¼ö
+select empno,ename,sysdate-hiredate as ê·¼ë¬´ì¼ìˆ˜
 from emp
 /
 
 to_date to_char to_number
 
-to_char n°ª°ú Å¸ÀÔÀ» ³ÖÀ½
+to_char nê°’ê³¼ íƒ€ì…ì„ ë„£ìŒ
 
 TO_CHAR(n [, fmt [, 'nlsparam' ] ])
 
-¹®ÀÚ·Î º¯°æ
-¼ıÀÚ·Î º¯°æ
+ë¬¸ìë¡œ ë³€ê²½
+ìˆ«ìë¡œ ë³€ê²½
 select to_char(1942,'9,990') from dual;
-¹®ÀÚÈ­
+ë¬¸ìí™”
 
 select to_char(sysdate,'hh24:mi:ss') from dual;
 select to_char(sysdate,'hh:mi:ss') from dual;
  select to_char(102456.23456,'$9,999,990.9')from dual;
 select to_char(102456.28456,'$9,999,990.9')from dual;
-¹®ÀÚ´Â ¿ŞÂÊºÎÅÍ Ã¤¿öÁü ¼ıÀÚ´Â ¿À¸¥ÂÊºÎÅÍ Ã¤¿öÁü
+ë¬¸ìëŠ” ì™¼ìª½ë¶€í„° ì±„ì›Œì§ ìˆ«ìëŠ” ì˜¤ë¥¸ìª½ë¶€í„° ì±„ì›Œì§
 
 select to_char(102456.28456,'$9,999,990.9'),102456.28456 as count from dual;
 select to_char(102456.28456,'l9,999,990.9'),102456.28456 as count from dual;
@@ -694,7 +695,7 @@ select to_char(sysdate,'bc') from dual;
 select to_char(sysdate,'d') from dual;
 select to_char(sysdate,'dd') from dual;
 select to_char(sysdate,'day d dd ddd') from dual;
-       to_char(sysdate,'dy') day, dy ->¼ö¿äÀÏ, ¼ö
+       to_char(sysdate,'dy') day, dy ->ìˆ˜ìš”ì¼, ìˆ˜
 select to_char(sysdate,'j')from dual;
 julian day
 select to_char(sysdate,'q')from dual;
@@ -702,27 +703,27 @@ Quarter of year (1, 2, 3, 4)
  select to_char(sysdate,'iw')from dual;
 week
  to_date('2017-02-01','yyyy-mm-dd')
-                       Çü½ÄÀ» ¸ÂÃã
+                       í˜•ì‹ì„ ë§ì¶¤
 
 '17-02-01','yy-mm-dd'
 
 
   to_char   to_char
 
-¼ıÀÚ    ¹®ÀÚ    ³¯Â¥
+ìˆ«ì    ë¬¸ì    ë‚ ì§œ
 
  to_number to_date
 select to_number('1,200','9,999')-1000 from dual;
-' '¾È¿¡ ¹®ÀÚÇü½ÄÀ» to_number·Î º¯È¯
+' 'ì•ˆì— ë¬¸ìí˜•ì‹ì„ to_numberë¡œ ë³€í™˜
 select empno,ename,nvl(to_char(comm),'no data') as R
  from emp
 
 
-nvl ³Î °ªÀÏ °æ¿ì
+nvl ë„ ê°’ì¼ ê²½ìš°
 
 
-select round(to_date('2017-02-01','yyyy-mm-dd'),'month') 16ÀÏ±âÁØ
-                                                 'year' µîµî Å¸ÀÔÀ¸·Î ±âÁØ 7¿ù±âÁØ
+select round(to_date('2017-02-01','yyyy-mm-dd'),'month') 16ì¼ê¸°ì¤€
+                                                 'year' ë“±ë“± íƒ€ì…ìœ¼ë¡œ ê¸°ì¤€ 7ì›”ê¸°ì¤€
 from dual
 /
  select sysdate
@@ -749,9 +750,9 @@ between a and b
 in (a,b)
 like
 
-¼ıÀÚ  abs ceil floor trunc round
-¹®ÀÚ  trim replace instr substr upper lower initcap 
-³¯Â¥  sysdate add_months 
+ìˆ«ì  abs ceil floor trunc round
+ë¬¸ì  trim replace instr substr upper lower initcap 
+ë‚ ì§œ  sysdate add_months 
 
 to_date
 to_char
@@ -760,10 +761,10 @@ to_number
 , 0 $ L 0 9 
 
 
-select next_day('2017-02-02','È­¿äÀÏ')from dual;
+select next_day('2017-02-02','í™”ìš”ì¼')from dual;
 select to_date('2016-02-01')-1 from dual;
 select last_day(to_date('2017-02-01')) from dual;
-select next_day('2017-02-03','±İ¿äÀÏ')from dual;
+select next_day('2017-02-03','ê¸ˆìš”ì¼')from dual;
 select months_between(sysdate,to_date('2016-10-03')) as mon from dual;
 select months_between(sysdate,to_date('2016-10-13')) as month from dual;
 select to_char(round(sysdate,'dd'),'yyyy-mm-dd hh24:mi:ss') from dual;
@@ -792,10 +793,10 @@ where mgr is null
 
 
 select empno,ename,
-decode(deptno, 10,'ÀÎ»ç',
-                20,'±âÈ¹',
-                30,'È«º¸',
-                'ºÎ¼­¾øÀ½') as dname
+decode(deptno, 10,'ì¸ì‚¬',
+                20,'ê¸°íš',
+                30,'í™ë³´',
+                'ë¶€ì„œì—†ìŒ') as dname
 from emp
 /
 
@@ -808,10 +809,10 @@ decode(job, 'ANALYST',sal+sal*0.05,
 from emp
 
 select empno,ename,job,sal,deptno,
-case deptno when 10 then 'ÀÎ»ç'
-             when 20 then'±âÈ¹'
-            when 30  then 'È«º¸'
-           else 'ºÎ¼­¾øÀ½'
+case deptno when 10 then 'ì¸ì‚¬'
+             when 20 then'ê¸°íš'
+            when 30  then 'í™ë³´'
+           else 'ë¶€ì„œì—†ìŒ'
   end 
 as dname
 from emp
@@ -819,47 +820,47 @@ from emp
 
 
  select empno,ename,job,sal,
- case deptno when 10 then 'ÀÎ»ç'
-              when 20 then'±âÈ¹'
-             when 30  then 'È«º¸'
-            else 'ºÎ¼­¾øÀ½'
-   end as ºÎ¼­,
+ case deptno when 10 then 'ì¸ì‚¬'
+              when 20 then'ê¸°íš'
+             when 30  then 'í™ë³´'
+            else 'ë¶€ì„œì—†ìŒ'
+   end as ë¶€ì„œ,
 case
- when deptno=10 then'ÀÎ»ç'
-when deptno=20 then'±âÈ¹'
-when deptno=30 then'È«º¸'
-else 'ºÎ¼­¾øÀ½'
+ when deptno=10 then'ì¸ì‚¬'
+when deptno=20 then'ê¸°íš'
+when deptno=30 then'í™ë³´'
+else 'ë¶€ì„œì—†ìŒ'
 end 
-as ºÎ¼­2
+as ë¶€ì„œ2
  from emp
 /
 
  select empno,ename,job,sal,
- case deptno when 10 then 'ÀÎ»ç'
-              when 20 then'±âÈ¹'
-             when 30  then 'È«º¸'
-            else 'ºÎ¼­¾øÀ½'
-   end as ºÎ¼­,
+ case deptno when 10 then 'ì¸ì‚¬'
+              when 20 then'ê¸°íš'
+             when 30  then 'í™ë³´'
+            else 'ë¶€ì„œì—†ìŒ'
+   end as ë¶€ì„œ,
 case
- when deptno=10 then'ÀÎ»ç'
-when deptno=20 then'±âÈ¹'
-when deptno=30 then'È«º¸'
-else 'ºÎ¼­¾øÀ½'
+ when deptno=10 then'ì¸ì‚¬'
+when deptno=20 then'ê¸°íš'
+when deptno=30 then'í™ë³´'
+else 'ë¶€ì„œì—†ìŒ'
 end 
-as ºÎ¼­2
+as ë¶€ì„œ2
 from emp/
 /
 
 select empno,ename,sal,
-decode(trunc(sal/1000),0,'ºÎÁ·'
-          ,1,'Àû´ç'
-          ,2,'¸¸Á·' ,3,'¸¸Á·',4,'¸¸Á·'
-,5,'°¨µ¿') as result
+decode(trunc(sal/1000),0,'ë¶€ì¡±'
+          ,1,'ì ë‹¹'
+          ,2,'ë§Œì¡±' ,3,'ë§Œì¡±',4,'ë§Œì¡±'
+,5,'ê°ë™') as result
 ,case
-     when sal<1000  then 'ºÎÁ·'
-     when sal>=1000 and sal<3000 then 'Àû´ç'
-     when sal>=3000 and sal<5000 then '¸¸Á·'
-     when sal>=5000 then '°¨µ¿'
+     when sal<1000  then 'ë¶€ì¡±'
+     when sal>=1000 and sal<3000 then 'ì ë‹¹'
+     when sal>=3000 and sal<5000 then 'ë§Œì¡±'
+     when sal>=5000 then 'ê°ë™'
 end as case1
 from emp
 /
@@ -907,12 +908,12 @@ avg(jumsu),
 sum(jumsu)/count(jumsu) as av1,
 sum(jumsu)/count(*) as av2 from sungjuck;
 
-±×·ì°ú Ä®·³¼±ÅÃÀº °°Àº¼±ÅÃÀ» ÇÒ ¼ö ¾ø´Ù
+ê·¸ë£¹ê³¼ ì¹¼ëŸ¼ì„ íƒì€ ê°™ì€ì„ íƒì„ í•  ìˆ˜ ì—†ë‹¤
 
 select max(hiredate),min(hiredate) from emp;
  select count(comm)from emp where deptno=10;
 select count(comm) from emp where deptno=30;
- select count(job) ¾÷¹«¼ö from emp;
+ select count(job) ì—…ë¬´ìˆ˜ from emp;
 
 select distinct deptno from emp;
 select count(deptno)from emp;
@@ -1086,8 +1087,8 @@ from employees
 group by department_id
 
 
-±×·ì¿¡¼­ ÇÊÅÍ 
-ÀüÃ¼ ÇÊÅÍ¿¡¼­ ±×·ì
+ê·¸ë£¹ì—ì„œ í•„í„° 
+ì „ì²´ í•„í„°ì—ì„œ ê·¸ë£¹
 
 select department_id ,max(salary),min(salary)
 from employees
