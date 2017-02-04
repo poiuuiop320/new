@@ -1,0 +1,50 @@
+__abstract 2	__alignof Operator	__asm
+__assume	__based	__box 2
+__cdecl	__declspec	__delegate 2
+__event	__except	__fastcall
+__finally	__forceinline	__gc 2
+__hook 3	__identifier	__if_exists
+__if_not_exists	__inline	__int16
+__int32	__int64	__int8
+__interface	__leave	__m128
+__m128d	__m128i	__m64
+__multiple_inheritance	__nogc 2	__noop
+__pin 2	__property 2	__raise
+__sealed 2	__single_inheritance	__stdcall
+__super	__thiscall	__try/__except, __try/__finally
+__try_cast 2	__unaligned	__unhook 3
+__uuidof	__value 2	__virtual_inheritance
+__w64	__wchar_t, wchar_t	abstract
+array	auto	bool
+break	case	catch
+char	class	const
+const_cast	continue	decltype
+default	delegate	delete
+deprecated 1	dllexport 1	dllimport 1
+do	double	dynamic_cast
+else	enum	enum class
+enum struct	event	explicit
+extern	false	finally
+float	for	for each, in
+friend	friend_as	gcnew
+generic	goto	if
+initonly	inline	int
+interface class	interface struct	interior_ptr
+literal	long	mutable
+naked 1	namespace	new
+new	noinline 1	noreturn 1
+nothrow 1	novtable 1	nullptr
+operator	private	property
+property 1	protected	public
+ref class	ref struct	register
+reinterpret_cast	return	safecast
+sealed	selectany 1	short
+signed	sizeof	static
+static_assert	static_cast	struct
+switch	template	this
+thread 1	throw	true
+try	typedef	typeid
+typeid	typename	union
+unsigned	using declaration, using directive	uuid 1
+value class	value struct	virtual
+void	volatile	while
