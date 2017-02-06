@@ -1,0 +1,80 @@
+SELECT EMPLOYEE_id ,last_name,department_id
+from employees
+where last_name = 'King';
+SELECT concat('hello','world') from dual;
+select substr('helloworld',1,5)from dual;
+select length('helloworld')from dual;
+select instr('helloworld','w')from dual;
+select lpad(salary,5,'*') from employees;
+select employee_id,concat(first_name,last_name) name,job_id,length(last_name),instr(last_name,'a')
+from employees where substr(job_id,4)='REP';
+select employee_id,Concat(first_name,last_name),instr(last_name,'a')from employees where substr(last_name,-1,1)='n';
+select round(45.926,2) from dual;
+select trunc(45.926,2) from dual;
+select mod(1600,300) from dual;
+select round(45.923,2),round(45.923,0),round(45.923,-1) from dual;
+select trunc(45.923,2),trunc(45.923),trunc(45.923,-1)from dual;
+select last_name,salary ,mod(salary,3)from employees where mod(salary,3)=0;
+select last_name ,hire_date from employees where hire_date>'05/01/01';
+select employee_id,last_name,job_id from employees where job_id like'%SA\_%' escape '\';
+select last_name , job_id,department_id,hire_date from employees order by 3;열 칼럼의 위치로 정렬
+select employee_id,last_name,salary,department_id from employees where employee_id = &employee_num;
+select last_name,department_id,salary*12 from employees where job_id='&job_title';
+select employee_id,last_name,job_id,&column_name from employees order by &column_name;값 재사용
+select to_char(sysdate,'yyyy/mm/dd hh24:mi:ss')from dual;
+select to_char(60000 ,'L99,999.00') from dual;
+
+months_between
+add_months
+next_day
+last_day
+round
+trunc
+where
+between and
+in
+like
+escape
+is null
+is not null
+order by
+where 에서  and ,or ,not
+not 은 between, in,  like, is null, is not null 가능
+order by  asc,desc nulls first nulls last 로 null값을 다룸
+to_char to_char(sysdate,'format_model')
+to_date
+to_number
+9 
+0 
+$ 
+L 
+. 
+, 
+nvl
+nvl2
+nullif
+coalesce
+case
+when
+then
+else
+end
+group by
+avg
+sum
+min
+max
+count
+distinct
+having
+join
+natural join
+on
+left outer join
+right outer join
+full outer join
+cross join
+in
+any
+all
+
