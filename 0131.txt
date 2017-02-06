@@ -3,33 +3,32 @@ Oracle Home: C:\oraclexe\app\oracle\product\11.2.0\server\
 Oracle Base:C:\oraclexe\
 
 Port for 'Oracle Database Listener': 1521
-ìë°”ì—°ë™í¬íŠ¸
+ÀÚ¹Ù¿¬µ¿Æ÷Æ®
 
 Port for 'Oracle Services for Microsoft Transaction Server': 2030
 
 
 
 Port for 'Oracle HTTP Listener': 8080
-ê´€ë¦¬í˜ì´ì§€ í¬íŠ¸ 
+°ü¸®ÆäÀÌÁö Æ÷Æ® 
 
-í¬íŠ¸ì¶©ëŒì´ ìˆì„ ìˆ˜ ìˆì„ ê²½ìš° ë°”ê¿”ì•¼ í•œë‹¤.
+Æ÷Æ®Ãæµ¹ÀÌ ÀÖÀ» ¼ö ÀÖÀ» °æ¿ì ¹Ù²ã¾ß ÇÑ´Ù.
 
 sqlplus
 
-ì„œë¹„ìŠ¤ ì‹œì‘
+¼­ºñ½º ½ÃÀÛ
  
 system
 
 Exec DBMS_XDB.SETHTTPPORT(7070);
-í¬íŠ¸ë³€ê²½
+Æ÷Æ®º¯°æ
 
 
 hr/hr
 
 scott/tiger
-system/password login then 
+
 @C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
-exit
 
 
 system->alter user scott identified by tiger;
@@ -42,14 +41,14 @@ show user
 conn hr/hr
 
 conn scott/tiger
-connì€ sql ì—°ê²°í›„ ì•ˆì—ì„œ ì»¤ë„¥
+connÀº sql ¿¬°áÈÄ ¾È¿¡¼­ Ä¿³Ø
 sqlplus hr/hr
 
 sqlplus scott/tiger
-ì™¸ë¶€ì—ì„œ ì ‘ê·¼í•  ê²½ìš° sqlplusë¥¼ ì‚¬ìš©
+¿ÜºÎ¿¡¼­ Á¢±ÙÇÒ °æ¿ì sqlplus¸¦ »ç¿ë
 
 sqlplus scott/tiger@192.168.0.42:1521/orcl
-ì›ê²©ì ‘ê·¼
+¿ø°İÁ¢±Ù
 
 
 select * from tab;
@@ -85,9 +84,9 @@ EMP                  TABLE
 SALGRADE             TABLE
 
 
-col ì»¬ëŸ¼ format aê¸¸ì´
+col ÄÃ·³ format a±æÀÌ
 
-EMP ì •ë³´ êµ¬ì¡°ë¥¼ ë³´ê³ ì‹¶ì„ ê²½ìš°
+EMP Á¤º¸ ±¸Á¶¸¦ º¸°í½ÍÀ» °æ¿ì
 
 desc emp;
 
@@ -115,17 +114,17 @@ select empno,ename,sal*12 from emp;
  from emp
  /
 
- select empno,ename,sal*12 as ì—°ë´‰ from emp;
+ select empno,ename,sal*12 as ¿¬ºÀ from emp;
 
 col yearsal format 9,999,9999
 select empno,ename,sal*12 as yearsal from emp;
 
-distinctì¤‘ë³µì œê±°
+distinctÁßº¹Á¦°Å
 
-select ì»¬ëŸ¼
-           ì»¬ëŸ¼ ì—°ì‚° nvl 
-from í…Œì´ë¸” 
-where ì¡°ê±´
+select ÄÃ·³
+           ÄÃ·³ ¿¬»ê nvl 
+from Å×ÀÌºí 
+where Á¶°Ç
 
 
 from dual;
@@ -194,9 +193,9 @@ where sal between 2000 and 3000;
 * 
 ?
 
-a% aë¡œ ì‹œì‘í•˜ëŠ” ê²½ìš° ê²€ìƒ‰
+a% a·Î ½ÃÀÛÇÏ´Â °æ¿ì °Ë»ö
 
-%a aë¡œ ëë‚˜ëŠ” ê²½ìš°ë¥¼ ê²€ìƒ‰
+%a a·Î ³¡³ª´Â °æ¿ì¸¦ °Ë»ö
 
 &a&
 
@@ -244,7 +243,7 @@ where ename like'%R_%;
 
 SAL*12+NVL(COMM,0)
 
-nvl í•¨ìˆ˜  ì»¤ë¯¸ì…˜ì˜ nullê°’ì„ 0ìœ¼ë¡œ ëŒ€ì²´
+nvl ÇÔ¼ö  Ä¿¹Ì¼ÇÀÇ null°ªÀ» 0À¸·Î ´ëÃ¼
 
  select empno,ename,comm
  from emp
@@ -263,9 +262,9 @@ where mgr is null;
  where name like '%A!_A%' escape'!';
 
 select * from t1
-where name like '%A_A%'; ì–¸ë”ë°”ê°€ ë“¤ì–´ê°„ ì´ë¦„ì´ìˆë‹¤ë©´ 
+where name like '%A_A%'; ¾ğ´õ¹Ù°¡ µé¾î°£ ÀÌ¸§ÀÌÀÖ´Ù¸é 
 
-ë¬¸ìë¼ê³  ì¸ì‹í•˜ê³  ì‹¶ì„ ë•Œ escape' ' ë¥¼ ì‚¬ìš©í•œë‹¤.
+¹®ÀÚ¶ó°í ÀÎ½ÄÇÏ°í ½ÍÀ» ¶§ escape' ' ¸¦ »ç¿ëÇÑ´Ù.
 
 
  select * from t1
@@ -331,17 +330,17 @@ dir/w/p
 
  ed emp.sql
 
-ddlì •ì˜ì–´  create alter drop
-dmlì¡°ì‘ì–´ insert update delete
-dclì œì–´ì–´ grant revoke
-dqlì§ˆì˜ì–´ select 
-tclíŠ¸ëœì­ì…˜ commit rollback
+ddlÁ¤ÀÇ¾î  create alter drop
+dmlÁ¶ÀÛ¾î insert update delete
+dclÁ¦¾î¾î grant revoke
+dqlÁúÀÇ¾î select 
+tclÆ®·£Àè¼Ç commit rollback
 
 
-select	ì»¬ëŸ¼,ì»¬ëŸ¼2,ì»¬ëŸ¼3 as ë³„ì¹­
-from	í…Œì´ë¸”ëª…
+select	ÄÃ·³,ÄÃ·³2,ÄÃ·³3 as º°Äª
+from	Å×ÀÌºí¸í
 where	
-ì»¬ëŸ¼ between a and b
+ÄÃ·³ between a and b
 in ('a','b','c')
 'a' or 'b' or 'c'
 like _ , % 
@@ -398,12 +397,12 @@ SQL> select mod(10,3),mod(2,2),mod(2,0),mod(-10,3)
 
 ABS(n)
 
-í¬ê¸°ë§Œ í‘œí˜„í•¨ 
+Å©±â¸¸ Ç¥ÇöÇÔ 
 
 FLOOR(n)
-ë‚´ë¦¼ê°’ í‘œí˜„
+³»¸²°ª Ç¥Çö
 MOD(n1,n2)
-n1ì— ëŒ€í•œ ë‚˜ë¨¸ì§€ê°’
+n1¿¡ ´ëÇÑ ³ª¸ÓÁö°ª
 
 
  select *
@@ -512,22 +511,22 @@ from dual
 
 select instr('honggildong','gil') from dual;
 
-ë¬¸ìì˜ ìœ„ì¹˜ ê²€ìƒ‰
+¹®ÀÚÀÇ À§Ä¡ °Ë»ö
 
  select instr('honggildonghonggildong','gil',6) from dual;
 SQL> select instr('abcdabcdabcdabcd','a',1,5) from dual;
 
 
- 1  select length('í™ê¸¸ë™'),length('abc')
- 2  ,lengthb('í™ê¸¸ë™'),lengthb('abc')
- 3  ,lengthc('í™ê¸¸ë™'),lengthc('abc')
+ 1  select length('È«±æµ¿'),length('abc')
+ 2  ,lengthb('È«±æµ¿'),lengthb('abc')
+ 3  ,lengthc('È«±æµ¿'),lengthc('abc')
  4* from dual
 
-select length('í™ê¸¸ë™'),length('abc')
-,lengthb('í™ê¸¸ë™'),lengthb('abc')
-,lengthc('í™ê¸¸ë™'),lengthc('abc'),
-length2('í™ê¸¸ë™'),length2('abc'),
-length4('í™ê¸¸ë™'),length4('abc')
+select length('È«±æµ¿'),length('abc')
+,lengthb('È«±æµ¿'),lengthb('abc')
+,lengthc('È«±æµ¿'),lengthc('abc'),
+length2('È«±æµ¿'),length2('abc'),
+length4('È«±æµ¿'),length4('abc')
 from dual
 
 
@@ -538,7 +537,7 @@ select ltrim('========abc d========','=') from dual
 select rtrim(ltrim('========abc d========','='),'=') from dual
 
 
-trim or ë¡œ ì°¾ê³  ì‚­ì œë¨ 
+trim or ·Î Ã£°í »èÁ¦µÊ 
 
 
 select lpad('abcdabcd',20,'*') from dual;
@@ -602,7 +601,7 @@ select replace( 'abcdefghigklmn','b','hi hello') from dual;
 select substr('hong gil dong' ,2,5) from dual;
                                  length
 
-ëŒ€ìƒ ìœ„ì¹˜ ê°œìˆ˜
+´ë»ó À§Ä¡ °³¼ö
 
 
 sysdate
@@ -664,26 +663,26 @@ select sysdate,sysdate+1,sysdate+2 from dual;
 select sysdate,sysdate+1,sysdate+2,sysdate+30 from dual;
 select sysdate,sysdate+1,sysdate+2,sysdate+30,sysdate-30 from dual;
 
-select empno,ename,sysdate-hiredate as ê·¼ë¬´ì¼ìˆ˜
+select empno,ename,sysdate-hiredate as ±Ù¹«ÀÏ¼ö
 from emp
 /
 
 to_date to_char to_number
 
-to_char nê°’ê³¼ íƒ€ì…ì„ ë„£ìŒ
+to_char n°ª°ú Å¸ÀÔÀ» ³ÖÀ½
 
 TO_CHAR(n [, fmt [, 'nlsparam' ] ])
 
-ë¬¸ìë¡œ ë³€ê²½
-ìˆ«ìë¡œ ë³€ê²½
+¹®ÀÚ·Î º¯°æ
+¼ıÀÚ·Î º¯°æ
 select to_char(1942,'9,990') from dual;
-ë¬¸ìí™”
+¹®ÀÚÈ­
 
 select to_char(sysdate,'hh24:mi:ss') from dual;
 select to_char(sysdate,'hh:mi:ss') from dual;
  select to_char(102456.23456,'$9,999,990.9')from dual;
 select to_char(102456.28456,'$9,999,990.9')from dual;
-ë¬¸ìëŠ” ì™¼ìª½ë¶€í„° ì±„ì›Œì§ ìˆ«ìëŠ” ì˜¤ë¥¸ìª½ë¶€í„° ì±„ì›Œì§
+¹®ÀÚ´Â ¿ŞÂÊºÎÅÍ Ã¤¿öÁü ¼ıÀÚ´Â ¿À¸¥ÂÊºÎÅÍ Ã¤¿öÁü
 
 select to_char(102456.28456,'$9,999,990.9'),102456.28456 as count from dual;
 select to_char(102456.28456,'l9,999,990.9'),102456.28456 as count from dual;
@@ -695,7 +694,7 @@ select to_char(sysdate,'bc') from dual;
 select to_char(sysdate,'d') from dual;
 select to_char(sysdate,'dd') from dual;
 select to_char(sysdate,'day d dd ddd') from dual;
-       to_char(sysdate,'dy') day, dy ->ìˆ˜ìš”ì¼, ìˆ˜
+       to_char(sysdate,'dy') day, dy ->¼ö¿äÀÏ, ¼ö
 select to_char(sysdate,'j')from dual;
 julian day
 select to_char(sysdate,'q')from dual;
@@ -703,27 +702,27 @@ Quarter of year (1, 2, 3, 4)
  select to_char(sysdate,'iw')from dual;
 week
  to_date('2017-02-01','yyyy-mm-dd')
-                       í˜•ì‹ì„ ë§ì¶¤
+                       Çü½ÄÀ» ¸ÂÃã
 
 '17-02-01','yy-mm-dd'
 
 
   to_char   to_char
 
-ìˆ«ì    ë¬¸ì    ë‚ ì§œ
+¼ıÀÚ    ¹®ÀÚ    ³¯Â¥
 
  to_number to_date
 select to_number('1,200','9,999')-1000 from dual;
-' 'ì•ˆì— ë¬¸ìí˜•ì‹ì„ to_numberë¡œ ë³€í™˜
+' '¾È¿¡ ¹®ÀÚÇü½ÄÀ» to_number·Î º¯È¯
 select empno,ename,nvl(to_char(comm),'no data') as R
  from emp
 
 
-nvl ë„ ê°’ì¼ ê²½ìš°
+nvl ³Î °ªÀÏ °æ¿ì
 
 
-select round(to_date('2017-02-01','yyyy-mm-dd'),'month') 16ì¼ê¸°ì¤€
-                                                 'year' ë“±ë“± íƒ€ì…ìœ¼ë¡œ ê¸°ì¤€ 7ì›”ê¸°ì¤€
+select round(to_date('2017-02-01','yyyy-mm-dd'),'month') 16ÀÏ±âÁØ
+                                                 'year' µîµî Å¸ÀÔÀ¸·Î ±âÁØ 7¿ù±âÁØ
 from dual
 /
  select sysdate
@@ -750,9 +749,9 @@ between a and b
 in (a,b)
 like
 
-ìˆ«ì  abs ceil floor trunc round
-ë¬¸ì  trim replace instr substr upper lower initcap 
-ë‚ ì§œ  sysdate add_months 
+¼ıÀÚ  abs ceil floor trunc round
+¹®ÀÚ  trim replace instr substr upper lower initcap 
+³¯Â¥  sysdate add_months 
 
 to_date
 to_char
@@ -761,10 +760,10 @@ to_number
 , 0 $ L 0 9 
 
 
-select next_day('2017-02-02','í™”ìš”ì¼')from dual;
+select next_day('2017-02-02','È­¿äÀÏ')from dual;
 select to_date('2016-02-01')-1 from dual;
 select last_day(to_date('2017-02-01')) from dual;
-select next_day('2017-02-03','ê¸ˆìš”ì¼')from dual;
+select next_day('2017-02-03','±İ¿äÀÏ')from dual;
 select months_between(sysdate,to_date('2016-10-03')) as mon from dual;
 select months_between(sysdate,to_date('2016-10-13')) as month from dual;
 select to_char(round(sysdate,'dd'),'yyyy-mm-dd hh24:mi:ss') from dual;
@@ -793,10 +792,10 @@ where mgr is null
 
 
 select empno,ename,
-decode(deptno, 10,'ì¸ì‚¬',
-                20,'ê¸°íš',
-                30,'í™ë³´',
-                'ë¶€ì„œì—†ìŒ') as dname
+decode(deptno, 10,'ÀÎ»ç',
+                20,'±âÈ¹',
+                30,'È«º¸',
+                'ºÎ¼­¾øÀ½') as dname
 from emp
 /
 
@@ -809,10 +808,10 @@ decode(job, 'ANALYST',sal+sal*0.05,
 from emp
 
 select empno,ename,job,sal,deptno,
-case deptno when 10 then 'ì¸ì‚¬'
-             when 20 then'ê¸°íš'
-            when 30  then 'í™ë³´'
-           else 'ë¶€ì„œì—†ìŒ'
+case deptno when 10 then 'ÀÎ»ç'
+             when 20 then'±âÈ¹'
+            when 30  then 'È«º¸'
+           else 'ºÎ¼­¾øÀ½'
   end 
 as dname
 from emp
@@ -820,47 +819,47 @@ from emp
 
 
  select empno,ename,job,sal,
- case deptno when 10 then 'ì¸ì‚¬'
-              when 20 then'ê¸°íš'
-             when 30  then 'í™ë³´'
-            else 'ë¶€ì„œì—†ìŒ'
-   end as ë¶€ì„œ,
+ case deptno when 10 then 'ÀÎ»ç'
+              when 20 then'±âÈ¹'
+             when 30  then 'È«º¸'
+            else 'ºÎ¼­¾øÀ½'
+   end as ºÎ¼­,
 case
- when deptno=10 then'ì¸ì‚¬'
-when deptno=20 then'ê¸°íš'
-when deptno=30 then'í™ë³´'
-else 'ë¶€ì„œì—†ìŒ'
+ when deptno=10 then'ÀÎ»ç'
+when deptno=20 then'±âÈ¹'
+when deptno=30 then'È«º¸'
+else 'ºÎ¼­¾øÀ½'
 end 
-as ë¶€ì„œ2
+as ºÎ¼­2
  from emp
 /
 
  select empno,ename,job,sal,
- case deptno when 10 then 'ì¸ì‚¬'
-              when 20 then'ê¸°íš'
-             when 30  then 'í™ë³´'
-            else 'ë¶€ì„œì—†ìŒ'
-   end as ë¶€ì„œ,
+ case deptno when 10 then 'ÀÎ»ç'
+              when 20 then'±âÈ¹'
+             when 30  then 'È«º¸'
+            else 'ºÎ¼­¾øÀ½'
+   end as ºÎ¼­,
 case
- when deptno=10 then'ì¸ì‚¬'
-when deptno=20 then'ê¸°íš'
-when deptno=30 then'í™ë³´'
-else 'ë¶€ì„œì—†ìŒ'
+ when deptno=10 then'ÀÎ»ç'
+when deptno=20 then'±âÈ¹'
+when deptno=30 then'È«º¸'
+else 'ºÎ¼­¾øÀ½'
 end 
-as ë¶€ì„œ2
+as ºÎ¼­2
 from emp/
 /
 
 select empno,ename,sal,
-decode(trunc(sal/1000),0,'ë¶€ì¡±'
-          ,1,'ì ë‹¹'
-          ,2,'ë§Œì¡±' ,3,'ë§Œì¡±',4,'ë§Œì¡±'
-,5,'ê°ë™') as result
+decode(trunc(sal/1000),0,'ºÎÁ·'
+          ,1,'Àû´ç'
+          ,2,'¸¸Á·' ,3,'¸¸Á·',4,'¸¸Á·'
+,5,'°¨µ¿') as result
 ,case
-     when sal<1000  then 'ë¶€ì¡±'
-     when sal>=1000 and sal<3000 then 'ì ë‹¹'
-     when sal>=3000 and sal<5000 then 'ë§Œì¡±'
-     when sal>=5000 then 'ê°ë™'
+     when sal<1000  then 'ºÎÁ·'
+     when sal>=1000 and sal<3000 then 'Àû´ç'
+     when sal>=3000 and sal<5000 then '¸¸Á·'
+     when sal>=5000 then '°¨µ¿'
 end as case1
 from emp
 /
@@ -908,12 +907,12 @@ avg(jumsu),
 sum(jumsu)/count(jumsu) as av1,
 sum(jumsu)/count(*) as av2 from sungjuck;
 
-ê·¸ë£¹ê³¼ ì¹¼ëŸ¼ì„ íƒì€ ê°™ì€ì„ íƒì„ í•  ìˆ˜ ì—†ë‹¤
+±×·ì°ú Ä®·³¼±ÅÃÀº °°Àº¼±ÅÃÀ» ÇÒ ¼ö ¾ø´Ù
 
 select max(hiredate),min(hiredate) from emp;
  select count(comm)from emp where deptno=10;
 select count(comm) from emp where deptno=30;
- select count(job) ì—…ë¬´ìˆ˜ from emp;
+ select count(job) ¾÷¹«¼ö from emp;
 
 select distinct deptno from emp;
 select count(deptno)from emp;
@@ -1087,12 +1086,645 @@ from employees
 group by department_id
 
 
-ê·¸ë£¹ì—ì„œ í•„í„° 
-ì „ì²´ í•„í„°ì—ì„œ ê·¸ë£¹
+±×·ì¿¡¼­ ÇÊÅÍ 
+ÀüÃ¼ ÇÊÅÍ¿¡¼­ ±×·ì
 
 select department_id ,max(salary),min(salary)
 from employees
 group by department_id
 having max(salary)<10000
 /
+select department_id,avg(salary),max(salary),min(salary)
+from employees
+where department_id in ( 20, 30)
+group by department_id
+/
+select department_id , salary,rank() over( order by salary) as r from employees;
+
+select department_id , salary,rank() over( order by salary desc) as r from employees;
+
+select avg(nvl(jumsu,0)) from sungjuck;
+select sum(jumsu)/count(*) from sungjuck;
+
+select job_id,avg(salary) from employees group by job_id;
+select job_id,avg(salary) from employees where department_id =50 group by job_id;
+select job_id,department_id,avg(salary) from employees group by job_id,department_id having department_id=50 ;
+select tname from tab;
+
+ drop table T1 purge;
+purge recyclebin;
+show recyclebin;
+flashback table p1 to before drop;
+
+ select empno,ename,dname
+ from emp,dept;
+select count(deptno) from dept;
+select count(empno) from emp;
+cross join
+equi join
+select empno,ename,dname from emp,dept where dept.deptno=emp.deptno;
+select * from emp,dept where dept.deptno=emp.deptno;
+select * from emp,dept where dept.deptno=emp.deptno and DNAME='SALES';
+desc employees
+desc jobs
+ select * 
+from employees,jobs 
+where employees.job_id=jobs.job_id;
+
+select department_id,employee_id,first_name,last_name,job_title 
+from employees,jobs 
+where employees.job_id=jobs.job_id;
+
+select department_id,employee_id,first_name||last_name as name,job_title 
+from employees,jobs 
+where employees.job_id=jobs.job_id;
+
+select department_id,employee_id,first_name||last_name as name,job_title as jobs,min_salary,max_salary 
+from employees,jobs 
+where employees.job_id=jobs.job_id;
+
+select department_id,employee_id,first_name||last_name as name,job_title as jobs,min_salary,max_salary 
+from employees,jobs 
+where employees.job_id=jobs.job_id and job_title='Marketing Manager';
+
+4 select
+1 from
+2 where
+3 group by
+5 having
+6 order by
+¿ì¼±¼øÀ§ ÀÎ½Ä¹üÀ§
+
+select * from employees,jobs where employees.job_id=jobs.job_id;
+select * from employees e,jobs j where e.job_id=j.job_id;
+
+COUNTRIES
+DEPARTMENTS
+EMPLOYEES
+EMP_DETAILS_VIEW
+JOBS
+JOB_HISTORY
+LOCATIONS
+REGIONS
+
+select ename,sal from dept d,emp e where d.deptno=e.deptno;
+
+ desc dept;
+desc emp;
+select ename,sal,d.loc from dept d,emp e where d.deptno=e.deptno and loc='NEW YORK';
+ select * from emp e ,dept d, salgrade s where e.deptno=d.deptno and e.sal>=s.losal and e.sal <=hisal ;
+
+ e.sal>=s.losal and e.sal <=hisal;
+
+  select first_name,department_name 
+from employees e, departments d,locations l 
+where e.department_id=d.department_id 
+and d.location_id=l.location_id 
+and department_name ='Finance';
+
+select first_name,department_name,city,country_name
+from employees e, departments d,locations l ,countries c
+where e.department_id=d.department_id
+      and d.location_id=l.location_id
+      and l.country_id=c.country_id
+and department_name ='Finance'
+/
+select e1.ename,e1.deptno, e2.ename,e2.deptno
+from emp e1,emp e2
+where e1.mgr=e2.empno
+/
+select e1.ename,e1.deptno,e1.sal,e1.hiredate
+from emp e1,emp e2
+where e1.mgr=e2.empno
+and e2.ename='KING'
+/
+
+select e2.ename,e2.sal,e2.hiredate
+from emp e1,emp e2
+where e1.mgr=e2.empno
+and e1.ename='SMITH'
+/
+
+
+select * from emp,dept where dept.deptno=emp.deptno and dept.dname='RESEARCH';
+select * from emp,dept where dept.deptno=emp.deptno and dept.loc='DALLAS';
+
+select e2.ename
+from emp e1,emp e2
+where e1.deptno=e2.deptno
+and e1.ename='SMITH'
+
+select e2.ename, e1.deptno,e2.deptno
+from emp e1,emp e2
+where e1.deptno=e2.deptno
+and e1.ename='FORD'
+
+select employee_id , salary
+from employees
+where salary >=3000 and salary<=10000
+or salary between   3000 and 10000
+order by salary desc
+
+select employee_id , job_id,COMMISSION_PCT
+from employees
+where COMMISSION_PCT is not null
+and job_id like '%REP'
+;
+
+select e1.employee_id ,e1.last_name,e1.MANAGER_ID,e2.last_name
+from employees e1,EMPLOYEES e2
+where e1.MANAGER_ID=e2.EMPLOYEE_ID and
+e1.department_id=80
+;
+
+select first_name||' '||last_name as name ,d.DEPARTMENT_NAME
+from employees e, DEPARTMENTS d, locations l
+where e.DEPARTMENT_ID=d.DEPARTMENT_ID
+and d.location_id=l.location_id
+and l.city='Seattle'
+;
+
+select p1.pname,p1.PRICE
+from pub p1,pub p2
+where p1.pname=p2.pname
+and p1.PRICE<>p2.PRICE
+;
+select e1.ename,e2.ename
+from emp e1,emp e2
+where e1.mgr=e2.empno(+)
+;
+
+
+select ename,emp.deptno,dept.deptno,dept.dname
+from emp ,dept
+where dept.deptno=emp.deptno(+)
+;
+select e1.ename,e2.ename
+from emp e1,emp e2
+where e1.mgr(+)=e2.empno
+
+;
+select e1.ename,e2.ename
+from emp e1,emp e2
+where e1.mgr=e2.empno(+)
+
+;
+
+select e1.ename,e2.ename
+from emp e1,emp e2
+where e1.mgr=e2.empno
+
+;
+
+
+inner join 
+on 
+=(+)
+left outer join
+on
+(+)=
+right outer join
+on
+
+full outer join 
+on
+
+select *
+from t1 left outer join t2
+on t1.a=t2.a(+)
+
+select *
+from t1 right outer join t2
+on t1.a(+)=t2.a
+
+
+
+
+0206
+
+select *
+from emp e , dept d
+where
+
+equi  e.dept.no=d.deptno
+no-euqi   
+self
+
+SELECT *
+FROM emp e,salgrade s
+WHERE e.sal>=s.losal and e.sal<=s.hisal
+;
+
+
+SELECT e1.ename,e1.mgr,e2.ename
+FROM emp e1,emp e2
+WHERE e1.empno=e2.MGR
+;
+
+
+SELECT e1.ename,e2.MGR,nvl(e2.ename,'ceo')
+FROM emp e1 ,emp e2
+WHERE e1.MGR=e2.empno(+)
+
+;
+
+SELECT e2.ename,nvl(e1.ename,'no emp')
+FROM emp e1 ,emp e2 
+WHERE e1.MGR(+)=e2.empno
+
+;
+
+SELECT *
+FROM emp cross join DEPT
+
+
+;
+
+SELECT empno,ename,dname
+FROM emp inner join dept 
+on emp.deptno=dept.DEPTNO
+;
+
+select  e.empoyess_id,e.fist_name,d.department_name
+from employees e inner join departments d 
+on e.department_id=d.department_id
+
+;
+
+select  e.employee_id,e.first_name,d.department_name,j.JOB_TITLE
+from employees e inner join departments d 
+on e.department_id=d.department_id
+join jobs j
+on e.job_id=j.JOB_ID
+
+;
+
+select  e.employee_id,e.first_name,d.department_name,j.JOB_TITLE
+from employees e inner join departments d 
+on e.department_id=d.department_id
+inner join jobs j
+on e.job_id=j.JOB_ID
+where job_title='Accountant'
+
+;
+
+
+select *
+from employees e inner join departments d 
+--on e.department_id=d.department_id
+using (department_id )
+
+
+;
+
+null°ªÀÌ ºüÁø Á¶ÀÎ inner Á¶ÀÎ
+null°ªÀ» »ç¿ë  outer Á¶ÀÎ
+
+
+select *
+from employees e right outer join departments d 
+on e.department_id=d.department_id
+;
+
+
+select *
+from employees e right outer join departments d 
+on e.department_id=d.department_id
+where e.EMPLOYEE_ID is null
+;
+
+
+create table dept01
+(
+deptno number(2),
+dname varchar(14));
+
+select *
+from dept01 left outer join dept02
+on dept01.DEPTNO=dept02.DEPTNO;
+
+select *
+from dept01 right outer join dept02
+on dept01.DEPTNO=dept02.DEPTNO;
+
+select *
+from dept01 full join dept02
+on dept01.DEPTNO=dept02.DEPTNO;
+
+
+select e.employee_id,e.first_name|| ' '|| e.last_name,e.job_id,d.DEPARTMENT_ID,d.DEPARTMENT_NAME,l.LOCATION_ID,j.JOB_TITLE,l.CITY,l.STATE_PROVINCE
+from EMPLOYEES e full outer join DEPARTMENTS d
+on e.DEPARTMENT_ID=d.DEPARTMENT_ID
+full outer join jobs j
+on e.JOB_ID=j.JOB_ID
+full outer join LOCATIONS l
+on d.LOCATION_ID=l.LOCATION_ID
+where lower(l.CITY)='toronto'
+;
+
+select *
+from EMPLOYEES e , DEPARTMENTS d,locations l
+where e.DEPARTMENT_ID=d.DEPARTMENT_ID
+and d.LOCATION_ID=l.LOCATION_ID
+and l.CITY='Toronto'
+;
+
+select dname,deptno
+from dept
+where deptno=(select deptno
+                     from emp
+                    where ename='FORD')
+;
+
+select *
+from emp
+where deptno=(select deptno
+                     from emp
+                    where ename='SMITH')
+   and ename<>'SMITH'    --º»ÀÎÀ» Á¦¿ÜÇÑ
+;
+
+
+select *
+from emp
+where JOB=(select job
+                     from emp
+                    where ename='SMITH')
+   and ename<>'SMITH'    --º»ÀÎÀ» Á¦¿ÜÇÑ
+;
+
+select *
+from emp
+where SAL>=(select sal
+from emp
+where ename='SMITH')
+;
+select *
+from emp
+where SAL>=(select sal
+from emp
+where ename='ALLEN');
+
+
+select *
+from emp
+where deptno=(select deptno
+from dept
+where loc='DALLAS')
+;
+
+select ename,sal
+from emp
+where deptno=(select deptno
+from dept
+where dname='SALES');
+
+SELECT ename , sal
+FROM emp
+WHERE mgr=(SELECT empno
+FROM emp
+WHERE ename='KING');
+
+SELECT e1.ename , e1.sal
+FROM emp e1 inner join emp e2
+on e1.mgr=e2.empno
+where e2.ename='KING'
+;
+
+SELECT e1.ename , e1.sal
+FROM emp e1,emp e2
+where e1.mgr=e2.empno
+and e2.ename='KING'
+;
+
+select sal
+from emp
+where sal>=(select avg(sal) from emp)
+;
+
+
+select ename,deptno,sal
+from emp
+where deptno in (select deptno
+from emp
+where sal>=3000)
+;
+
+
+select max(sal)
+from emp
+group by deptno
+;
+
+select *
+from emp
+where sal in (select max(sal)
+from emp
+group by deptno)
+;
+
+select *
+from emp
+where hiredate in (select max(hiredate)
+from emp
+)
+;
+
+select empno,ename,sal
+from emp e1
+where sal in(select max(sal) from emp e2 
+where e1.deptno=e2.deptno 
+group by deptno)
+;
+
+select deptno,dname,loc
+from dept
+where deptno in ( select deptno from emp where job='MANAGER')
+;
+
+select *
+from emp
+where hiredate in ( select max(hiredate) from emp );
+
+select *
+from emp
+where empno not in ( select mgr
+from emp
+where mgr is not null );
+
+select *
+from emp
+where empno in ( select mgr
+from emp
+where mgr is not null );
+
+select e1.empno,e1.ename,e1.sal,e2.job
+from emp e1,emp e2
+where e1.empno=e2.mgr(+)
+;
+
+select e1.empno,e1.ename,e1.sal,e1.job
+from emp e1 left outer join emp e2
+on e1.empno =e2.mgr(+)
+where e2.JOB is null
+;
+select e1.empno,e1.ename,e1.sal,e1.job
+from emp e1 left outer join emp e2
+on e1.empno =e2.mgr
+where e2.JOB is null
+;
+select *
+from emp
+where empno in (select empno from emp where mgr is null)
+;
+
+select ename,sal
+from emp
+where sal >all (select sal from emp where deptno=30);
+
+select ename,sal
+from emp
+where sal >all (select max(sal) from emp group by deptno having deptno=30);
+
+select ename,sal
+from emp
+where sal>(select max(sal) from emp where deptno=30);
+
+select ename,sal
+from emp
+where sal >=all(select sal from emp where job ='SALESMAN')
+and job<>'SALESMAN';
+
+
+select ename,sal
+from emp
+where sal >(select max(sal) from emp where job='SALESMAN');
+
+select ename,sal
+from emp
+where sal >any(select sal from emp where deptno=30);
+any ÀÚ·áÁß ÇÏ³ª
+
+select ename,sal
+from emp
+where sal >(select min(sal) from emp where deptno=30);
+
+select ename,sal
+from emp
+where sal >(select min(sal) from emp group by deptno having deptno=30);
+select ename ,sal
+from emp
+where sal> any(select sal from emp where job='SALESMAN')
+;
+select ename ,sal
+from emp
+where sal< any (select avg(sal) from emp group by deptno )
+;
+
+select ename ,sal
+from emp
+where sal< all (select avg(sal) from emp group by deptno )
+;
+
+select ename ,sal
+from emp e1
+where sal< all (select avg(sal) from emp e2 where e1.deptno=e2.deptno group by deptno )
+;
+Æò±Õ°ú ±×·ì °¢ ºÎ¼­
+
+select l.location_id,l.street_address,l.city,l.state_province,c.country_name
+from countries c ,locations l
+where c.country_id=l.country_id
+;
+select l.location_id,l.street_address,l.city,l.state_province,c.country_name
+from countries c natural join locations l
+
+;
+select l.location_id,l.street_address,l.city,l.state_province,c.country_name
+from countries c inner join locations l
+on l.country_id = c.country_id
+;
+
+SELECT e.LAST_NAME,  e.job_id,d.department_id,d.department_name
+FROM employees e, departments d, locations l
+where e.department_id=d.department_id
+and d.location_id=l.location_id
+and l.city='Toronto'
+;
+
+SELECT e.LAST_NAME employee,
+  e.EMPLOYEE_ID emp#,
+  e2.LAST_NAME manager,
+  e2.EMPLOYEE_ID mgr#
+FROM employees e,
+  employees e2
+WHERE e.MANAGER_ID = e2.EMPLOYEE_ID
+;
+
+SELECT 
+  e1.EMPLOYEE_ID,
+  e1.LAST_NAME,
+  e1.MANAGER_ID,
+  e2.EMPLOYEE_ID ,
+  e2.LAST_NAME  ,
+  e2.MANAGER_ID 
+FROM employees e1,
+  employees e2
+WHERE e1.MANAGER_ID(+) = e2.EMPLOYEE_ID
+and e1.employee_id is null
+;
+select ename,job
+from emp
+where ename='&e'
+
+
+SELECT last_name, hire_date
+FROM employees
+WHERE department_id = (SELECT department_id
+ FROM employees
+ WHERE last_name = '&&Enter_name')
+AND last_name <> '&Enter_name'; 
+
+SELECT EMPLOYEE_ID,LAST_NAME,SALARY
+FROM employees
+WHERE SALARY>=  (SELECT avg(salary)
+ FROM employees )order by salary
+; 
+
+SELECT EMPLOYEE_ID,LAST_NAME
+FROM employees
+WHERE last_name = any (SELECT LAST_NAME
+ FROM employees where last_name like '%u%')
+ 
+; 
+
+ddl create alter drop
+dml insert update delete
+dql select
+
+select ROWID,empno,ename
+from emp;
+
+select name,age,to_char(birth,'yyyy-mm-dd hh24:mi:ss') from s1;
+
+insert into s1(NAME ,AGE, BIRTH , B_MONTH ) values('aaa',30,'2010-01-02',INTERVAL '36' month);
+
+insert into s1(NAME ,AGE, BIRTH , B_MONTH ) values('bbb',20,'2011-01-01',INTERVAL '3' year);
+
+insert into p1 values(1,'a',interval '003-02' year(3)to month);
+
+
+create table s2( s2_val interval day(3) to second);
+insert into s2 values( interval '3 12' day to hour);
+insert into s2 values( interval '3 12' day(3) to hour);
+insert into s2 values( interval '30' hour);
+select * from s2;
+
+create table tempemp4
+
+insert into table
+select * from *table
+
+
+as select empno,ename from emp where 1=0;
 
