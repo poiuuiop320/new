@@ -1728,3 +1728,216 @@ select * from *table
 
 as select empno,ename from emp where 1=0;
 
+number 
+char 
+varchar2 
+date 
+interval year to month 
+interval day to second
+interval '300' year(3)
+interval '400' month(3)
+interval '3-02' year to month
+interval '4 4' 
+select into
+insert into
+insert into select
+
+create table dept10
+as select * from emp where 1=0
+
+insert all when deptno=10 then into dept10 values (empno,ename,job,mgr,hiredate,sal,comm,deptno)
+when DEPTNO=20 then into dept20 values(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+when DEPTNO=30 then into dept30 values(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+select * from emp;
+
+
+
+truncate table dept10;
+truncate table dept20;
+truncate table dept30;
+
+alter table dept20 drop column job;
+alter table dept20 drop column mgr;
+alter table dept20 drop column sal;
+alter table dept20 drop column comm;
+desc dept20;
+
+insert all when deptno=10 then into dept10 
+when DEPTNO=20 then into dept20 values(empno,ename,hiredate,deptno)
+when DEPTNO=30 then into dept30 
+select * from emp;
+
+select *
+from  (select e.empno,e.ename,d.dname
+from emp e inner join dept d
+on e.deptno=d.deptno);
+
+select empno,ename,sal,sal-(select avg(sal) from emp )
+from emp;
+
+select empno,ename,sal,(select avg(sal)from emp),sal-(select avg(sal) from emp )
+from emp;
+
+select empno,ename,sal,trunc((select avg(sal)from emp)),sal-trunc((select avg(sal) from emp ))
+from emp;
+
+NOT NULL 열에 null 값을 포함할 수 없음을 지정
+UNIQUE 테이블의 모든 행에 대해 값이 고유해야 하는 열 또는 열 조합을 지정
+PRIMARY KEY 테이블의 각 행을 고유하게 식별
+FOREIGN KEY 특정 테이블의 열과 참조 테이블의 열 간에 참조 무결성을 설정하고 적용하여 한 테이블의 값이 다른 테이블의 값과 일치하도록 합니다.
+참조되는 테이블의 칼럼의 값이 존재하면 허용한다.
+(primary key 를 받아오는것)
+CHECK 참이어야 하는 조건을 지정합니다.
+
+create table student( 
+stid varchar(20) CONSTRAINT PK_student_stid PRIMARY KEY 
+,stname varchar(10) constraint nn_student_stname not null
+,jumsu number(3) constraint ck_student_jumsu 
+check(jumsu>=0 and jumsu <=100)
+);
+
+ORA-00001: unique constraint (SCOTT.PK_STUDENT_STID) violated
+ORA-01400: cannot insert NULL into ("SCOTT"."STUDENT"."STID")
+
+not null
+primary key 
+nou null unique
+check
+
+desc user_objects;
+desc user_tables;
+desc USER_CONSTRAINTS;
+
+
+SELECT user_objects.OBJECT_NAME,
+  user_objects.OBJECT_ID,
+  user_objects.OBJECT_TYPE
+FROM user_objects
+;
+select T.TABLE_NAME,T.TABLESPACE_NAME
+from user_tables t;
+
+SELECT user_constraints.OWNER,
+  user_constraints.CONSTRAINT_NAME,
+  user_constraints.TABLE_NAME,
+  user_constraints.CONSTRAINT_TYPE
+FROM user_constraints
+;
+SELECT OWNER,
+  CONSTRAINT_NAME,
+  TABLE_NAME,
+  CONSTRAINT_TYPE
+FROM user_constraints
+;
+select owner,constraint_name,constraint_type,search_condition,r_constraint_name from user_constraints;
+
+select * from USER_CONS_COLUMNS;
+select constraint_type,constraint_name from user_constraints;
+
+create table t1 (tcode Varchar2 (20)constraint uk_tcode unique)
+ORA-00001: unique constraint (SCOTT.UK_TCODE) violated
+
+alter table t1 drop constraint uk_tcode;
+create table school (
+hcode varchar2(20) constraint pk_school_hcode primary key
+,hname varchar2(20) );
+create table student 
+(
+ stcode varchar2(20) constraint pk_student_stcode primary key
+ ,stname varchar2(20) 
+ ,addr varchar2(20)
+ ,hcode varchar2(20) constraint fk_school_student references school(hcode) 
+)
+;
+insert into student (stcode, hcode) values ('1202',null);
+insert into student (stcode, hcode) values ('1203','a07'); -integrity constraint (SCOTT.FK_SCHOOL_STUDENT) violated - parent key not found
+create table df
+( name varchar2(20)
+,addr varchar2(20) default '서울'
+);
+
+create table member( mid varchar2(20),mname varchar2(20),maddr varchar2(100),mdept varchar2(20)
+,constraint pk_mid primary key(mid)
+,constraint ck_mdept check(mdept in ('a','b','c'))
+,constraint uk_mname unique(mname)
+);
+
+create table member2( 
+mid varchar2(20),
+mname varchar2(20),
+maddr varchar2(100),
+mdept varchar2(20),
+phone varchar2(20) constraint nn_phone not null
+,constraint pk_mid primary key(mid)
+,constraint ck_mdept check(mdept in ('a','b','c'))
+,constraint uk_mname unique(mname)
+
+);
+create table hak( 
+hakcode varchar2(2)
+, hakname varchar2(10)
+, constraint pk_kah primary key(hakcode));
+
+constraint pk_stcode primary key(stcode1,stcod2)
+constraint fk_hak foreign key ( hakcode) references hak(hakcode)
+decode
+case 
+when
+then
+inner join
+eqjoin
+left outer join
+ansi 
+where 
+subquery
+ create table s1 ( sid varchar2(20) primary key);
+alter table s1 add sname varchar2(20) constraint nn_sname not null;
+alter table s1 add jumsu NUMBER(3);
+alter table s1 drop column jumsu;
+create table dept02 as select * from dept where 1=0;
+alter table dept02 add dmgr number(4);
+alter table dept02 modify loc varchar2(40);
+alter table dept02 modify loc varchar2(30);
+select length(loc) from dept02;
+alter table dept02 modify loc varchar2(10);--01441: cannot decrease column length 
+alter table dept02 drop column loc;
+auto commit 
+commit
+quit exit
+ddl
+update table_name set exp  where exp2
+alter table table_name set unused(job);
+drop table table_name;
+drop table table_name purge;
+truncate table table_name;
+rename s1 to p1;
+create alter drop
+insert update delete
+update set
+delete from tab1;
+
+SELECT user_tables.TABLE_NAME,
+  user_tables.TABLESPACE_NAME    FROM user_tables;
+create table tempemp as select * from emp where 1=0;
+create table tempemp1(empno,ename)as select empno,ename from emp;
+insert into tempemp select * from emp where deptno=10;
+create table emp1 as select empno,ename,hiredate from emp where 1=0;
+create table emp2 as select empno,ename,sal from emp where 1=0; 
+
+insert all
+into emp1 values(empno,ename,hiredate)
+into emp2 values(empno,ename,sal)
+select empno,ename,hiredate,sal from emp;
+
+insert all
+when substr(hiredate,1,2)='80' then into tb1 values(ename,hiredate)
+when substr(hiredate,1,2)='81' then into tb2 values(ename,hiredate)
+when substr(hiredate,1,2)='82' then into tb3 values(ename,hiredate)
+select ename,hiredate from emp ;
+
+insert all
+when to_char(hiredate,'yyyy')='1980' then into y80
+when to_char(hiredate,'yyyy')='1981' then into y81
+when to_char(hiredate,'yyyy')='1982' then into y82
+select * from emp;
+
