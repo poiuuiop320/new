@@ -1,0 +1,222 @@
+select 
+
+모든열 검색
+특정열 검색
+산술식
+산술 연산자사용
+null값 정의
+산술식 null값
+열 alias 정의와 사용
+연결 연산자
+리터럴 문자열
+대체 인용 연산자
+중복행
+테이블 구조 표시
+describe 명령사용
+
+
+데이터 제한 및 정렬
+
+선택사용하여 행제한
+선택되는 행 제한
+where 절사용
+문자열 및 날짜
+비교연산자
+between연산자 범위조건
+in연산자 멤버 조건
+like 연산자 패턴일치
+대체 문자 결합
+null 조건사용
+논리 연산자 사용하여 조건정의
+and연산자
+or연산자
+order by
+정렬
+치환 변수
+단일 앰퍼센트 치환 변수사용
+문자 및 날짜값을 치환변수로 지정
+열 이름 표현식 및 텍스트 지정
+이중 앰퍼센트 치환 변수 사용
+define 명령
+verify 명령
+
+
+단일행 함수 사용하여 커스터마이즈 출력
+
+sql 함수
+sql 함수 두가지 유형
+단일 행 함수
+문자 함수
+대소문자 변환 함수
+문자 조작함수
+숫자 함수
+round 함수
+trunc 함수
+mod 함수
+날짜 작업 
+RR 날짜 형식
+sysdate 함수
+날짜 연산
+날짜에 산술연산자 사용
+날짜 조작함수
+날짜 함수 사용
+날짜에 round및 trunc함수
+
+
+변환함수 및 조건부 표현식 사용
+
+변환함수
+암시적 데이터 유형변환
+명시적 데이터 유형변환
+날짜에 TO_CHAR 함수
+날짜 형식 모델의 요소
+숫자에 TO_CHAR 함수
+TO_NUMBER 및 TO_DATE 함수
+RR 날짜 형식으로 TO_CHAR 및 TO_DATE 함수
+함수 중첩
+일반함수
+nvl 함수
+nvl2 함수
+nullif 함수
+coalesce 함수
+case 식
+decode 함수
+
+그룹함수를 사용 데이터 집계
+
+그룹함수 avg sum min max count 
+distinct 키워드
+그룹함수 null값
+데이터 그룹 생성
+두개 이상열로 group by
+여러열에서 group by
+그룹 결과 제한
+having 절
+그룹함수 중첩
+
+조인을 사용 여러테이블 데이터 표시
+
+여러테이블에서 데이터 가져오기
+조인 유형
+테이블 조인
+모호한 열이름 한정
+natural join 생성
+natural join 레코드 검색
+using 절로 조인 생성
+열 이름 조인
+using 절로 레코드 검색
+using 절에 테이블 alias 사용
+on절로 조인생성
+on절을 사용하여 레코드검색
+on절을 사용하여 3way 조인 생성
+조인에 추가 조건적용
+테이블 자체 조인
+on 절을 사용하는 self join
+non equijoin
+no equijoin 절로 레코드검색
+outer join 과 직접 일치하지 않는 레코드 반환
+inner join 과 outer join
+left outer join
+right outer join
+full outer join
+cross join
+
+subquery 를 사용하여 쿼리 해결
+
+subquery 구문
+subquery 사용
+subquery 유형
+단일행 subquery
+subquery 에서 그룹함수
+subquery 있는 having 절
+inner query 에서 반환된 행이 없음
+여러행 subquery
+여러행 subquery any연산자
+여러행 subquery all연산자
+exists 연산자
+subquery 의 null값
+
+dml문 데이터 조작
+
+dml
+테이블에 새행추가
+insert 문
+새행 삽입
+null값 행삽입
+특수값삽입
+특정날짜 및 시간값 삽입
+스크립트
+다른 테이블에서 행복사
+테이블 데이터 변경
+update문
+테이블 행 갱신
+subquery 사용하여 두개의 열 갱신
+다른 테이블을 기반으로 행갱신
+테이블에서 행제거
+delete문
+다른 테이블을 기반으로 행삭제
+truncate문
+데이터베이스 트랜잭션
+commit rollback
+명시적 트랜잭션 제어문
+변경 사항을 표시자로 롤백
+암시적 트랜잭션 처리
+commit rollback 전의 데이터상태
+commit 후 데이터 상태
+rollback 후 데이터 상태
+명령문 레벨 롤백
+읽기 일관성
+select 문의 for update절
+
+ddl문 테이블 생성 및 관리
+
+create table
+다른 유저의 테이블 참조
+default옵션
+테이블 생성
+데이터 유형
+datetime 데이터유형
+제약조건 포함
+제약조건 지침
+제약조건 정의
+not null 제약조건
+unique 제약조건
+primary key 제약조건
+foreign key 제약조건
+check 제약조건
+제약조건 위반
+subquery 를 사용하여 테이블 생성
+alter table
+읽기 전용 테이블
+테이블 삭제
+
+기타 스키마 객체 생성
+뷰
+단순뷰 와 복합뷰
+뷰 생성
+뷰에서 데이터 검색
+뷰 수정
+복합 뷰 생성
+뷰에대한 dml 작업 수행 규칙
+with check option 절 사용
+dml 작업 거부
+뷰 제거
+시퀀스
+create sequence문
+시퀀스 생성
+nextval 및 currval pseudocoulmn 
+시퀀스 사용
+시퀀스 값 캐시
+시퀀스 수정
+시퀀스 수정지침
+인덱스
+인덱스가 생성되는 방식
+인덱스 생성
+인덱스 생성지침
+인덱스 제거
+동의어
+객체의 동의어 생성
+동의어 생성 및 제거
+
+
+
