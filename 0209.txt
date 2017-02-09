@@ -1,0 +1,306 @@
+select 
+from
+where
+
+select 연산이 되고 distinct 로 중복제거
+ as [alias] 를 사용해서 컬럼헤드이름을 바꿈
+where [job] in( 값 문자라면 '값' , 값'값')
+where [job] not in( );
+where [ condition] and [condition]
+ ex ) sal>=1000 and sal<=2000
+and 는 between [coditon] and [condition]
+ ex  )  between sal>1000 and sal<2000
+ like &a
+ like a&
+ like &a&
+ ex) ename like '%E%';
+ ex)like '%A!_A%' escape'!';
+ 
+ group by
+ having
+ order by
+ 
+ create table [tablename]
+ (
+ [name] varchar2(20)
+ );
+ insert into [tablename] values[name_values]
+ 
+ create alter drop
+ grant reboke
+ insert update delete
+ select 
+ commit rollback
+ 
+ ceil floor mod abs power round trunc 
+ chr[n] concat[char,char] initcap[char] lower[char] upper[char] instr[[string],[substring],숫자들어감]
+ length[str] ltrim[str] rtrim[str] trim[str]여기에 both leading 사용가능 lpad[str]rpad[str]
+ nvl null 값일때 반환하는 키워드
+ systate
+current_date
+add_months
+next_day
+last_day
+months_between
+
+ to_char
+ to_number
+ to_date
+ ex) select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+ ex) select to_date('2016-02-01')-1 from dual;
+
+ is null
+ is not null
+ 
+decode
+ex)select empno,ename,job,sal,
+decode(job, 'ANALYST',sal*1.05,
+                'SALESMAN',sal*1.1,
+                'MANAGER',sal*1.15,
+                'CLERK',sal*1.2,
+                  sal) as upsal
+                  from emp
+ case  ~when~ then~ else~ end
+ex) select empno,ename,job,sal,deptno,
+    case deptno when 10 then '인사'
+                when 20 then'기획'
+                when 30  then '홍보'
+                else '부서없음'
+  end 
+as dname
+from emp 
+
+group by function
+avg count collect max min rank sum last median
+ex) select sum(sal),count(sal),max(sal),min(sal),avg(sal)from emp;
+
+max(hiredate)min(hiredate)
+group by 할때 순서 select 순서 같이 한다.
+group by 의 조건을 사용할 때 having 을 사용
+
+ex)select deptno,avg(sal)
+from emp
+group by deptno
+having deptno=10
+
+where 전체에서 필터해서 가져옴
+group by ~having 그룹에서 필터하고 가져와서 좀더 속도좋음
+
+drop tabel [tablename] purge;
+purge recyclebin;
+flashback table [tablename] to before drop;
+
+SELECT table1.column, table2.column
+FROM table1 [NATURAL JOIN table2]
+             [JOIN table2 
+  USING (column_name)] 
+             [JOIN table2
+  ON (table1.column_name = table2.column_name)]
+[LEFT|RIGHT|FULL OUTER JOIN table2
+  ON (table1.column_name = table2.column_name)]
+[CROSS JOIN table2];
+조인에 추가조건이 가능함 아래와 같이
+and e.manager_id= 149;
+where e.manager_id=149;
+
+join on 은 3 way join 생성 가능 
+
+self join from emp e1,emp e2;
+
+cross join 교차 곱 생성
+
+interval
+
+insert into ~ as select ~from~where~;
+
+insert all
+~ when ~then into~values~(column_name)
+
+create table dept30
+as select * from emp where 1=0;
+
+insert all when deptno=10 then into dept10 values (empno,ename,job,mgr,hiredate,sal,comm,deptno)
+when DEPTNO=20 then into dept20 values(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+when DEPTNO=30 then into dept30 values(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+select * from emp;
+
+truncate table ~; 
+truncate table emp01;
+alter table dept20 drop column empno;
+truncate 데이터 삭제
+alter table ~ drop column ~;열 칼럼삭제
+drop table dept20;
+drop table ~;
+
+create table school( hcode varchar2(20) constraint pk_p_p1 primary key,
+hname varchar2(20) );
+
+create table student( stcode varchar2(20) constraint pk_p_p11 primary key
+,stname varchar2(10)
+,addr varchar2(20)
+,hcode varchar2(20) constraint fk_school_student references school(hcode));
+
+insert into student (stcode,hcode) values( '1213',12);???
+select * from student;
+
+alter table~ add
+alter table~ drop column
+alter table~ modify
+alter table ~set unused(~);
+insert into~values
+update ~ set~ where~;
+delete from ~ where~;
+truncate table
+rename ~ to ~;
+
+merge into~
+using~
+on~
+when~then~
+update set~
+update~ set~ where~ ;값이 수정됨
+savepoint ~;
+rollback to ~;
+
+constraint [constraint_name]
+~foreign key [테이블제약조건레벨에서 하위 테이블의 열을 정의]
+~references [테이블 및 상위 테이블의 열을 식별]
+~on delete cascase[상위 테이블의 행이 삭제될때 하위테이블의 종속된 행을 삭제]
+~on delete set null[ 종속 foreign key 값을 null로 변환]
+
+grant create view to scott;
+
+create view v1;
+create or replace view v1 as select empno,ename from emp;
+create or replace view v1(v1column1,v1column2,c1column) as select ename sal hiredate from emp;
+
+rownum
+
+select *
+from(select rownum as rnum,s.*
+from(select ename,sal,hiredate,job,dname
+from emp,dept
+where emp.deptno=dept.deptno
+order by sal desc)s)
+where rnum>=3 and rnum<7
+
+create sequence ~[sequence_name];
+
+insert into ~ values(~.nextval);
+
+create sequence seq;
+select seq.nextval from dual;
+select seq.currval from dual;
+start with
+increment by
+select~ from~;
+cycle nocache
+maxvalue
+minvalue
+rebuild
+
+declare~ begin~exception~ end
+
+declare
+
+begin
+select~ into~
+dbms_output.put_line(~);
+end
+
+declare 
+result1 emp.ename%type;
+result2 emp.empno%type;
+begin 
+select ~ into~
+from ~join~
+on~
+where~
+
+dbms_output.put_line(~);
+
+declare 
+var_emp emp%rowtype;
+begin
+select * into var_emp
+from emp
+where ~;
+dbms_output.put_line(~);
+
+create procedure [procedure(a number)]
+is
+var_avg number:=0;
+begin
+ select avg(sal) into var_avg
+ from emp
+ where deptno=a;
+ dbms_output.put_line(var_avg);
+exec [procedure(10)];
+
+exception
+when not_data_found then~
+end;
+
+if [condition] is null then 
+ dbms_output.put_line(~);
+ else 
+ dbms_output.put_line(~);
+ end if;
+ end;
+ 
+ begin 
+  begin
+   dbms_output.put_line('Inside inner block.');
+      
+  end;
+  begin
+   dbms_output.put_line('This string breaks here.');
+  end;
+ end;
+
+create or replace procedure sub1
+is
+begin
+dbms_output.put_line('first');
+end;
+
+create or replace procedure sub2
+is
+begin
+dbms_output.put_line('second');
+end;
+
+create or replace procedure main
+is
+begin
+ begin
+  sub1;
+  sub2;
+ end;
+end;
+
+type empdept_rec_type is record(
+empno emp.empno%type;
+,ename emp.ename%type;
+,sal emp.sal%type;
+,deptno emp.deptno%type;
+);
+typeisrecord empdept_rec_type;
+
+begin
+ select~ into
+ from
+ where procedure=a;
+ dbms_output.put_line(typeisrecord.empno||typeisrecord.ename||typeisrecord.deptno||typeisrecord.sal);
+ 
+ exception
+ when not_data_found then dbms_output.put_line('not data');
+end;
+
+
+desc user_objects;
+desc user_tables;
+desc USER_CONSTRAINTS;
+desc user_views;
+desc user_sequences;
+desc user_ind_columns;
