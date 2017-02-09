@@ -2205,6 +2205,8 @@ where rnum>=3 and rnum<=6
 
 select *
 from(select rownum as rnum,a.* 
+
+
 from(select empno,ename,sal
 from emp
 where ename like '%E%'
@@ -2236,3 +2238,511 @@ select * from t1;
 insert into t2  values (seq1.nextval,'d');
 select * from t2;
 sequence value 가 이어짐
+
+
+테이블 추가 삭제 수정
+뷰
+시퀀스
+grant 
+조인
+group by
+having
+트랜잭션
+savepoint
+제약조건
+plsql
+인덱스
+
+create table tt
+( tid number constraint prk_fid primary key
+);
+
+alter table tt
+add tname varchar2(10) constraint nn_tname not null;
+alter table tt
+add ck_tname check(tname)
+
+create table tt2
+(
+tid2 number
+tname varchar2(20)
+
+)
+
+alter table tt2
+add constraint tid2 pk_tid2 primary key (tid2);
+alter table tt2
+add  rfid nunber constraint fk_rfid foreign key ( tid2) references tt(tid) on delete cascade;
+alter table tt2 drop column tname;
+alter table tt2 drop constraint pk_tname;
+
+commit rollback savepoint
+
+savepoint [savepoint]
+rollback to [savepoint]
+
+create table t2
+(
+tid number constraint pk_tid primary key 
+,tname varchar2(20)
+);
+
+update t2 set tname='hong' where tid=1;
+
+ select s.sid,s.serial#,s.username,r.name
+ from v$session s,v$transactiont t,v$rollname r
+ where s.taddr=t.addr
+ and t.xidusn=r.usn
+
+drop view v1;
+drop view view1;
+
+alter table t1 add refid number constraint fk_refid references t2(tid);
+alter table t1 drop column refid;
+alter table t2
+add refid number;
+
+alter table t2
+add constraint tk_refid foreign key(refid) reference t2(tid);
+
+create sequence seq;
+select seq.nextval from dual;
+select seq.currval from dual;
+
+start with
+increment with
+desc user_sequences;
+drop sequence seq;
+
+create sequence seq2
+start with 10
+increment by 3;
+select seq2.nextval from dual;
+
+create sequence seq3 
+start with 10 
+increment by 5 
+maxvalue 20 
+minvalue 0;
+
+create sequence se3 start with 2 increment by 3 maxvalue 21 cycle  nocache ;
+
+cache 
+
+grant create view to scott
+
+alter sequence [sequence_name]
+
+index 인덱스 
+
+자동으로 생성 수동으로 생성
+
+묶은게 세그먼트
+
+세그먼트안에 데이터 블럭으로 순서대로 저장한다.
+
+b트리로 관리
+
+고유 인덱스 순서를 정해줄 경우 중복이 안됨
+비고유인덱스 중복됨 사용자가 정해주는 경우
+세그먼트 단위로 저장 한 후에 물리적으로 정렬 순서를 정한다.
+
+desc user_ind_columns;
+select * from user_ind_columns;
+select * from user_cons_columns;
+select constraint_name ,table_name,column_name from user_cons_columns;
+select index_name,table_name,column_name from user_ind_columns;
+
+set timing on;
+create index i_emp on emp(hiredate);
+
+select index_name,table_name,column_name from user_ind_columns where table_name in('emp');
+create index ind_emp_job on emp(job);
+
+select * from user_ind_columns where table_name='EMP';
+
+rebuild
+
+declare~begin ~ exception~end
+
+declare section
+
+executable section
+
+exception section
+ 
+set serveroutput on
+
+begin
+end;
+
+begin dbms_output.put_line('hello');
+end;
+
+exec dbms_output.put_line('hello honghonghong'); 프로시져 실행
+
+begin
+dbms_output.put_line('akdsfklafj');
+dbms_output.put_line('ksjdaflksjlkdfjaklfjklad');
+end;
+
+
+declare
+ v_sum1 number :=0;
+ v_sum2 number;
+begin
+ dbms_output.put_line('해당자료는'||v_sum1);
+ v_sum2:=10;
+ dbms_output.put_line('다음자료는'||v_sum2);
+end;
+
+declare
+ v_sum1 number :=20;
+ v_sum2 number;
+begin
+ dbms_output.put_line('해당자료는'||v_sum1);
+ v_sum2:=100;
+ dbms_output.put_line('다음자료는'||v_sum2);
+end;
+
+declare
+vempno number(4);
+vename varchar2(20);
+begin
+vempno :=7788;
+vename :='parkkim';
+dbms_output.put_line('사번  이름');
+dbms_output.put_line(vempno||'  '||vename);
+end;
+
+@abc.sql
+or
+@abc
+
+declare
+result_ename varchar2(10);
+
+begin
+
+select ename into result_ename
+from emp
+where empno=7902;
+dbms_output.put_line(result_ename);
+
+end;
+
+declare
+result_ename emp.ename%type;
+
+begin
+
+select ename into result_ename
+from emp
+where empno=7902;
+dbms_output.put_line(result_ename);
+
+end;
+
+declare
+aaa emp.ename%type;
+bbb emp.deptno%type;
+ccc emp.sal%type;
+begin
+select ename,deptno,sal into aaa,bbb,ccc
+from emp
+where ename='KING';
+dbms_output.put_line(aaa||'  '||bbb||'   '||ccc);
+end;
+
+declare
+aaa emp.ename%type;
+bbb emp.deptno%type;
+ccc emp.sal%type;
+begin
+select ename,deptno,sal into aaa,bbb,ccc
+from emp
+where ename='KING';
+dbms_output.put_line('이름   부서   급여');
+dbms_output.put_line(aaa||'  '||bbb||'   '||ccc);
+end;
+
+
+declare
+v_dname dept.dname%type;
+
+begin
+
+select d.dname into v_dname
+from emp e inner join dept d
+on e.deptno=d.deptno
+where e.ename='KING';
+
+dbms_output.put_line(v_dname);
+end;
+
+declare
+v_dname dept.dname%type;
+v_ename varchar2(20);
+v_sal emp.sal%type;
+v_empno emp.empno%type;
+v_hiredate emp.hiredate%type;
+begin
+
+select d.dname,e.ename, e.sal,e.empno,e.hiredate
+into v_dname,v_ename,v_sal,v_empno,v_hiredate
+from emp e inner join dept d
+on e.deptno=d.deptno
+where e.ename='KING';
+
+dbms_output.put_line(v_empno||'  '||v_ename||'  '||v_sal||'  '||'  '||v_hiredate||'  '||v_dname);
+end;
+
+
+declare
+v_dname dept.dname%type;
+v_ename varchar2(20);
+v_sal emp.sal%type;
+v_empno emp.empno%type;
+v_hiredate emp.hiredate%type;
+begin
+
+select d.dname,e.ename, e.sal,e.empno,e.hiredate
+into v_dname,v_ename,v_sal,v_empno,v_hiredate
+from emp e , dept d
+where e.deptno=d.deptno
+and e.ename='KING';
+
+dbms_output.put_line(v_empno||'  '||v_ename||'  '||v_sal||'  '||'  '||v_hiredate||'  '||v_dname);
+
+dbms_output.put_line(v_empno);
+dbms_output.put_line(v_ename);
+dbms_output.put_line(v_sal);
+dbms_output.put_line(v_hiredate);
+dbms_output.put_line(v_dname);
+
+
+end;
+
+
+declare
+v_emp emp%rowtype;
+
+begin
+
+select *
+into v_emp
+from emp 
+where ename='KING';
+
+dbms_output.put_line(v_emp.empno);
+dbms_output.put_line(v_emp.ename);
+end;
+
+
+프로시져 명령문 저장
+
+create procedure [procedure]
+is 
+
+create or replace
+
+
+exec proc1();
+
+select * from user_source;
+
+create or replace procedure proc1(a number)
+is
+v_avg number:=0;
+begin
+ select avg(sal) into v_avg
+ 
+ from emp
+ where deptno=a;
+ dbms_output.put_line(v_avg);
+end;
+
+exec proc1(10);
+
+show error;
+
+
+create or replace procedure proc1(a number)
+is
+v_sal number:=0;
+begin
+ select sal into v_sal
+ from emp
+ where empno=a;
+ dbms_output.put_line(v_sal);
+ exception 
+ when NO_data_found then 
+ dbms_output.put_line('no data');
+end;
+
+exec proc1(20);
+
+
+create or replace procedure proc1(a number)
+is
+v_sal number:=0;
+
+begin
+ select avg(sal) into v_sal
+ from emp
+ where deptno=a;
+ dbms_output.put_line(v_sal);
+ exception 
+ when NO_data_found then 
+ dbms_output.put_line('no data');
+end;
+
+exec proc1(20);
+
+create or replace procedure proc1(a number)
+is
+v_sal number:=0;
+
+begin
+ select avg(sal) into v_sal
+ from emp e right outer join dept d
+ on e.deptno=d.deptno
+ where e.deptno=a;
+ dbms_output.put_line(v_sal);
+if v_sal is null then 
+ dbms_output.put_line('사원이 없습니다.');
+ else
+  dbms_output.put_line('해당 부서 평균은'||v_sal);
+end if;
+
+end;
+
+create or replace procedure main
+is
+begin 
+ begin 
+  dbms_output.put_line('first');
+ end;
+ begin
+  dbms_output.put_line('second');
+ end;
+end;
+
+exec main;
+
+create or replace procedure sub1
+is
+begin
+dbms_output.put_line('first');
+end;
+
+create or replace procedure sub2
+is
+begin
+dbms_output.put_line('second');
+end;
+
+create or replace procedure main
+is
+begin
+ begin
+  sub1;
+  sub2;
+ end;
+end;
+
+exec main;
+
+
+declare
+ v_rec emp%rowtype;
+begin
+select * into v_rec
+from emp
+where empno=7782;
+
+dbms_output.put_line(v_rec.empno);
+dbms_output.put_line(v_rec.ename);
+dbms_output.put_line(v_rec.job);
+end;
+
+declare
+ type emp_record_type is record(       );
+ emp_record emp_record_type;
+
+
+create or replace procedure deproc2(a number)
+is
+type empdept_rec_type is record( 
+empno emp.empno%type
+,ename emp.ename%type
+,sal emp.sal%type
+,deptno emp.deptno%type
+);
+emprec empdept_rec_type;
+begin
+ select empno,ename,sal,deptno 
+ into emprec
+ from emp
+ where empno=a;
+ dbms_output.put_line(emprec.empno);
+ dbms_output.put_line(emprec.ename);
+ dbms_output.put_line(emprec.sal);
+ dbms_output.put_line(emprec.deptno);
+ exception
+ when no_data_found
+ then dbms_output.put_line('no data');
+
+end;
+
+exec deproc2(7782);
+
+create or replace procedure [procedure_name]
+is
+type [type_record_name] is record
+(
+  empno emp.empno%type
+, ename emp.ename%type
+, sal emp.sal%type
+, deptno emp.deptno%type
+);
+
+emprec [type_record_name];
+ begin
+  select empno,ename,sal,deptno
+  from emp
+   where deptno=a;
+dbms_output.put_line(emprec.empno);
+dbms_output.put_line(emprec.ename);
+dbms_output.put_line(emprec.sal);
+dbms_output.put_line(emprec.deptno);
+
+exception
+when no_data_found then dbms_output.put_line('no data');
+
+end;
+
+create or replace procedure result(a number)
+is 
+type result_rec is record
+(
+empno emp.empno%type
+,ename emp.ename%type
+,hiredate emp.hiredate%type
+,sal emp.sal%type
+,deptno emp.deptno%type
+);
+recs result_rec;
+ begin
+ select empno,ename,hiredate,sal,deptno
+ from emp
+ where empno=a;
+ if recs.sal<=2000 then dbms_output.put_line('bad');
+ elsif recs.sal>=2000 or recs.sal<4000 then dbms_output.put_line('good');
+ else recs.sal>4000 then dbms_output.put_line('very good');
+ end if;
+  end;
+  
+
+show error;
+
