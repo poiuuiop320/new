@@ -2746,3 +2746,31 @@ recs result_rec;
 
 show error;
 
+create or replace procedure deproc2(a number)
+is
+type empdept_rec_type is record( 
+empno emp.empno%type
+,ename emp.ename%type
+,sal emp.sal%type
+,deptno emp.deptno%type
+);
+emprec empdept_rec_type;
+begin
+ select empno,ename,sal,deptno 
+ into emprec
+ from emp
+ where empno=a;
+ dbms_output.put_line(emprec.empno);
+ dbms_output.put_line(emprec.ename);
+ dbms_output.put_line(emprec.sal);
+ dbms_output.put_line(emprec.deptno);
+ if emprec.sal<=2000  then dbms_output.put_line('bad');
+ elsif emprec.sal>=2000 and emprec.sal<4000 then dbms_output.put_line('good');
+ else dbms_output.put_line('very good');
+ end if;
+  exception
+ when no_data_found then dbms_output.put_line('no data');
+  end;
+  
+exec deproc2(7782);
+show error;
