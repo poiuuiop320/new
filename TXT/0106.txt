@@ -1,0 +1,415 @@
+window.onload=function()
+{
+  document.getElementById("btn").onclick=function()
+  {
+     var name=document.getElementById("name").value;
+     var age=document.getElementById("age").value;
+     var g=document.getElementsByName("gen");  
+    var checkg="";  
+      for(var i=0; i<g.length; i++)
+          {
+              if(g[i].checked)
+                  {
+                      checkg=g[i].value;
+                  }
+          }
+      var add=document.getElementById("addr");
+      var readd="";
+      
+      for(var i=0; i<add.length; i++)
+          {
+            
+               if(add[i].selected)
+                   {
+                       readd=add[i].value;  
+                   }
+          }
+      var fav=document.getElementsByName("fav");
+      var refav="";  
+      var refav="";  
+      
+      for(var i=0; i<fav.length; i++)
+    {
+          if(fav[i].checked)
+              {
+                  refav+=" "+fav[i].value;
+              }
+        
+        
+    }
+    var talk=document.getElementById("talk").value;  
+    
+    var win=window.open(" "," "," width=250px, height=250px");  
+     win.document.write("name :"+name+"<br>");
+     win.document.write("age :"+age+"<br>");
+     win.document.write("gender :"+checkg+"<br>");
+      win.document.write("addr :"+readd+"<br>");
+      win.document.write("fav :"+refav+"<br>");
+      win.document.write("talk :"+talk+"<br>");
+      var data="<input type='button' value='닫기' onclick='javascript:self.close()'>";
+      
+      win.document.write(data);
+      
+  }
+    
+}
+
+
+window.onload=function()
+{
+    var win=window.open("" ,"" ,"width=100px, height=100px");
+    var time="";
+    document.getElementById("start").onclick=function()
+    {
+         var color=["red","blue","green","yellow"];
+        var i=0;
+        time=setInterval(function(){
+            win.document.write("<html><head></head><body></body></html>");
+                                                                        
+
+             var body=win.document.getElementsByTagName("body");
+                                               
+
+            if(i%4==0)
+               i=0;
+            body[0].style.background=color[i];
+             i++;
+        },"1000");
+    }
+    document.getElementById("end").onclick=function()
+    {
+         clearInterval(time);    
+        
+    }
+    
+    
+}
+
+  <script src=" https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	  <script>
+	  	$(document).ready(function(){
+	  		$('.tab>li').find('div').hide();
+	  		$('.tab>li:eq(0)').find('h2')
+	  		                  .css('backgroundColor','yellow')
+	  		                  .next()
+	  		                  .show().css('backgroundColor','yellow');
+	  		
+	  		$('.tab>li>h2').on('click', function(){
+	  			$('.tab>li').find('div').hide();
+	  			$('.tab>li').find('h2')
+	  			    .css('backgroundColor','skyblue')
+	  			    .next()
+	  			    .css('backgroundColor','skyblue');
+	  			$(this).css('backgroundColor','yellow')
+	  			       .next()
+	  			       .show()
+	  			       .css('backgroundColor','yellow');
+	  			
+	  			
+	  		});
+	  		
+	  	});
+	  	
+배열을 다룰줄 알아야 한다.
+
+.prop()
+
+.attr(attrname) :속성보기
+.attr(name, value) :속성추가
+.attr(map) 
+.attr(name, function(){});
+.removeAttr(attrname) :속성삭제
+
+각 객체에 대한 속성을 다룬다.
+
+Attributes vs. Properties  (selectedIndex, tagName, nodeName, 
+                           nodeType, ownerDocument, defaultChecked, and defaultSelected)
+
+
+ $(document).ready(function(){
+            
+            $('.a').click(function(){
+               
+                var src=$(this).attr("src");
+                                           
+                var alt=$(this).attr("alt");  
+                                           
+                $('#test').attr("src",src);
+                                            
+                $('#test').attr("alt",alt);
+                                             
+
+                
+            });
+            
+        });
+
+
+
+    $(document).ready(function(){
+        
+        $('#btn').on('click',function(){
+            
+            $('input[name="gen"]').each(function(index,item){
+                
+                if($(item).prop('checked'))
+                {
+                  console.log(item.value);  
+                };
+                
+            });
+        });
+        
+    });
+
+
+
+속성의 값을 표시
+
+프로파티값을 표시
+
+.attr() → "checked"
+.prop() → true
+.attr() → "checked"
+.prop() → false
+ 체크가 되어있는지 판단을 할경우 .prop()을 사용할 필요
+
+prop() :명시되어있지 않는 프로퍼티
+selectedIndex, 
+tagName, 
+nodeName, 
+nodeType, 
+ownerDocument
+defaultChecked, 
+defaultSelected는 prop이용할것
+
+prop(propertyName) prop(propertyName, value)
+
+
+
+
+
+
+.html() 문서객체 내부의 글자와 관련된 모든기능수행 (태그인식)
+.text() :태그인식 안함
+.val() value값 얻기
+
+
+$(document).ready(function(){
+        $('#add').click(function(){
+             
+            //$('#result').html("<"); .html().html().html().html().html().html()
+            $('#result').append("<li>안녕하세요</li>");.append("<li>안녕하세요</li>")
+        });
+        $('#remove').click(function(){
+            
+            $('#result').empty();.empty();.empty();.empty();.empty();.empty();.empty();
+            });
+            
+        });
+
+
+//$('#result').empty();   선택된 안에 객체 삭제
+$('#result').remove();   선택된거 전체 삭제
+
+
+
+
+
+is()
+add()
+$( "p" ).add( "span" )
+       또는
+$('p , span')
+
+.next() 형제중 다음을 선택하는 요소
+.nextAll() 다음 형제중 전체를 선택하는 요소
+
+.prev() .preAll() 앞전 형제
+http://api.jquery.com/next/
+var loc=$('li').eq(1).nextAll().css('backgroundColor','yellow');
+
+
+
+.append()
+
+http://api.jquery.com/append/
+
+.prepend()
+http://api.jquery.com/prepend/
+.appendTo()
+http://api.jquery.com/appendTo/
+.prependTo()
+http://api.jquery.com/prependTo/
+
+$('#hello').append('<p>안녕</p>'); 
+$('#hello').prepend('<p>안녕</p>');
+
+$('#hello').before('<p>안녕1</p>')
+$('#hello').after('<p>안녕2</p>')
+
+
+.siblings()
+http://api.jquery.com/siblings/
+
+.slice()
+http://api.jquery.com/slice/
+.slice( start [, end ] )
+ the 0-based position
+
+   //var d=$('div').slice(1,2);
+        
+        var d=$('div').text().slice(10,15);
+        console.log(d);
+.replace()
+
+//$(this).replaceWith('<button>'+$(this).text()+'</button>')
+$('<button>'+$(this).text()+'</button>').replaceAll($(this));
+
+
+
+$('div').wrap('<p></p>');
+
+wrap 요소로 포함된 엘리먼트로으로 감싼다. 
+
+.wrapInner( wrappingElement )
+
+Description: Wrap an HTML structure around the content of each element in the set of matched elements.
+
+  $('div').wrapInner('<p></p>'); 안에 감싼다 
+    $('div').wrap('<p></p>'); 겉에 감싸고
+
+이벤트
+
+.ready DOM로드후 실행한다.
+
+.bind() 현재 존재하는 객체에 이벤트연결
+.bind(eventType [,eventData], handler(eventObj))
+
+
+.unbind() :이벤트 제거
+
+.load() DOM요소가 로드되었을때 실행
+
+.unload()
+
+
+
+undelegate()
+delegate() :현재또는 미래에 존재하는 요소에 이벤트적용
+.delegate(selector, eventType, handler(eventObject))
+.delegate(selector, eventType, eventData, handler(eventObject)
+.deleate(selector, event)
+
+
+on() : 이벤트 연결
+
+1.7이후 .live사용중지 bind, delegate, bind를 on으로
+
+새로 생성한 문서객체에 이벤트 적용을 원할 경우 delegate사용
+
+
+
+  $(document).ready(function(){
+          
+         /*  $('div').bind('click', function(){
+                $(this).after('<div>추가내용</div>');
+               
+           }); 
+          */
+          $('body').delegate('div','click',function(){
+                $(this).after('<div>추가내용</div>');
+              
+              
+          });
+          
+      });
+
+
+
+ $(document).ready(function(){
+        $('#conn').click(function(){
+              $('#btn').bind('click', function(){
+                    alert('hello!!!');
+              });
+        });
+        $('#disconn').click(function(){
+             $('#btn').unbind();
+        });
+        
+        
+    });  
+
+
+  /*$('div').on('click',function(){
+               
+              $(this).after('<div>클릭</div>') ;
+           });*/
+    
+        $('body').on('click','div',function(){
+            
+           $(this).after('<div>click</div>') 
+        });
+    });
+
+
+bind와 delegate 를 on()으로 사용할 수 있다.
+
+bind와 delegate는 예전버전에서 사용됐었다.
+
+
+
+이미 생성된 이벤트에 대한 것을 다루는것을 handler라고 한다.
+
+trigger는 이벤트를 발생했을때 연속으로 발생하고 싶을 때 사용한다.
+
+event effect를 다룬다.. show() with hide()
+
+
+$(document).ready(function(){
+    $('div').hide();
+    $('#s').on('click',function(){
+        $('div').show(1000);
+        
+    });
+    
+    $('#h').on('click',function(){
+        $('div').hide(1000);
+        
+    });
+});
+ 
+
+ var r = Math.floor( Math.random() * 3 );
+              내림 반대 fill
+
+
+
+
+
+
+jquery UI 에서 accordion 접근성문제때문에 직접 구현해야한다.
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+
+ 
+    </script>
+    
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+스타일
+레이아웃
+스크립트
+스타일 속성 컨트롤
+주관식
+getelement 종류 
+
+https://code.jquery.com/jquery-3.1.1.min.js
+https://code.jquery.com/jquery-1.12.4.min.js
+https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
+http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.js
+
+api documentation . jquery.com
+
+jQuery.ready(function(){
+         
+         
+     });콜백함수임
+
+$= jquery
+
+$(document).ready(function(){
+            
+              $('div').css('border','1px solid red');
+              $('div:odd').css('color','blue'); 
+                      even
+          }) 
+      });
+=========================
+ jQuery(function(){alert('test');});
+=====================
+$(document).ready(function(){
+          $(document).ready(function(){
+              $('div').css('border','1px solid red');
+               $('div:odd').css('color','blue');
+          })
+      });
+========================
+ $('div').css('border','1px solid red');
+
+
+위 세가지 방법으로 쓸 수 있음.
+http://api.jquery.com/category/selectors/basic-css-selectors/ 확인주소
+All Selector (“*”)
+Selects all elements.전체선택
+Class Selector (“.class”)
+Selects all elements with the given class. 클래스만선택
+Element Selector (“element”)
+Selects all elements with the given tag name.태크선택
+ID Selector (“#id”)
+Selects a single element with the given id attribute.아이디만선택
+Multiple Selector (“selector1, selector2, selectorN”)
+Selects the combined results of all the specified selectors.콤마로 or 선택
+$('p,div'); 또는 선택하려면 따옴표 안에 콤마
+
+
+http://api.jquery.com/category/css/           css주소
+
+Child Selector (“parent > child”)
+Selects all direct child elements specified by “child” of elements specified by “parent”.
+
+
+http://api.jquery.com/child-selector/ child selecter
+--------------------------------------
+<ul class="topnav">
+  <li>Item 1</li>              o
+  <li>Item 2                   o
+    <ul>                       x
+    <li>Nested item 1</li>     x   
+    <li>Nested item 2</li>     x
+    <li>Nested item 3</li>     x  
+    </ul>
+  </li> 
+  <li>Item 3</li>              o
+</ul>
+ 
+<script>
+$( "ul.topnav > li" ).css( "border", "3px double red" ); o선택됨
+</script>
+</body>
+</html>
+--------------------------------
+
+child selector
+Description: Selects all direct child elements specified by "child" of elements specified by "parent".
+
+version added: 1.0 버전확인 중요
+
+jQuery( "parent > child" )
+parent: Any valid selector.
+
+child: A selector to filter the child elements.
+
+
+$(document).ready(function(){
+        $('ul>li li').css()
+                    .css()
+                    .css()       <-- 체인방식
+
+.css( propertyName, value )
+
+.css( propertyName, function )
+
+.css( properties )
+
+
+
+.css( propertyName )Returns: String
+
+
+Description: Get the computed style properties for the first element in the set of matched elements.
+
+
+프로퍼티 값을 가져욤
+
+properties
+Type: PlainObject
+An object of property-value pairs to set.
+
+  $('ul>li li').css({
+                     
+                     
+                 });
+
+
+위에 property 로 설정해 사용할수있다.
+
+.css({ 
+     "color":'red'
+      "backgroundColor":'silver'
+
+});
+
+
+eq(n) = 선택된값 선택
+lt(n) = 미만값   선택
+gt(n) = 초과값   선택
+
+$('input[type="text"]').css('backgroundColor','yellow');
+//태그도 선택할 수 있고 태그안에 속성도 선택할 수 있다.
+
+
+속성 attribute
+
+요소[속성] 
+특정 속성을 가지고 있는 문서객체 선택
+요소[속성=값]
+속성안의 값이 특정값과 같은 문서객체 선택
+요소[속성!=값] not([속성=값]) 과 동일
+속성안의 값이 특정값과 같지 않은 문서 객체 선택
+요소[속성^=값]
+속성안의 값이 특정값으로 시작하는 문서객체 선택
+요소[속성$=값]
+속성안의 값이 특정 값으로 끝나는 문서객체 선택
+요소[속성~=값]
+속성안의 값이 특정값을 단어로써 포함하는 문서객체 선택
+공백과 함께 포함하는
+요소[속성*=값]
+속성안의 값이 특정값을 포함하는 문서객체 선택
+
+ 
+
+
+<input name="newsletter">
+<input name="milkman">
+<input name="jobletter">
+ 
+<script>
+$( "input[name$='letter']" ).val( "a letter" ); 
+          속성(n)= 값 이 특정값으로 끝나는 문서 객체 선택
+</script>
+
+$(       속성~=  단어로 선태(찾음)
+$(       속성*=  글자로 선택(찾음)
+
+
+
+
+$(document).ready(function(){
+
+         $('div').on('click', function(){
+                  
+              if($(this).hasClass('bg')) 
+                                  
+                   $(this).removeClass('bg');
+                                      
+              else
+
+                   $(this).addClass('bg');
+                                
+          });  
+         
+         $('div').click(function(){
+                         
+            $(this).toggleClass('bg'); 
+                              
+         });    
+         
+     });
+위에 다시 보기
+
+event.preventDefault(); 개체마다 기본속성을 바꿔줄때 사용안할때 막아줄때
+
+
+http://api.jquery.com/hidden-selector/
+
+They have a CSS display value of none.
+They are form elements with type="hidden".
+Their width and height are explicitly set to 0.
+An ancestor element is hidden, so the element is not shown on the page.
+
+
+선택이 중요
+
+$('div span :last-child')
+.css
+.hover
+
+
+hover(function() {$( this ).addClass( "solast" );},
+      function() {$( this ).removeClass( "solast" );
+  });
+
+
+http://api.jquery.com/jQuery.each/  
+
+
+jQuery.each()
+
+Categories: Utilities 유틸리티안에있다.
+Returns: Object 오브젝트를 반환한다.
+
+
+jQuery.each( array, callback )
+array
+Type: Array
+The array to iterate over.
+callback
+Type: Function( Integer indexInArray, Object value )
+The function that will be executed on every object.
+
+jQuery.each( object, callback )
+object
+Type: Object
+The object to iterate over.
+callback
+Type: Function( String propertyName, Object valueOfProperty )
+The function that will be executed on every object.
+
+키값 벨류값 정보가 들어올수있다.
+
+
+$.each문을ㅈ
+짝수배경 노란색
+홀수 border 2px solid
+
+
+$('div:odd ') 이렇게 사용하면안됨
+
+
+var data=$('div');
+선택자를 변수에 담고
+$.each(data,function(index,item){
+ var txt=$(item).text();
+  선택된 아이템과 속성을 txt에 담고
+
+ $(item).text(txt+"!!")
+
+} 
+
+ $(document).ready(function(){
+                  
+     var data=$('tbody td');
+                선택자를 함수에넣고
+       $.each(data, function(index, item){
+ each문을 사용해서 출력한다. 
+              console.log($(item).text());
+                          (item.text) 이건 자바스크립이기때문에
+                          $(item)이렇게 바꿔준다
+                                 속성이니까 ()를 사용한다.
+
+       });
+       
+       
+   });   
+
+.each( function )
+
+.css 에서 css스타일을 바꿀 수 있다. 괄호열고 '속성','값' 으로
+
+$(selector).each(function(index,element){…} );
+$.each(arr, function(index, value){…});
+$.each(arr,function(key, value){…});
+위와같이 연속으로 사용
+
+$(arr). 
+
+arr배열을 넣을수있다(자바스크립트인) 선택자에다가.....http://api.jquery.com/jQuery/
+jQuery( selector [, context ] )
+
+jQuery( element )
+jQuery( elementArray )
+jQuery( object )
+jQuery( selection )
+jQuery()
+jQuery( html [, ownerDocument ] )
+jQuery( html, attributes )
+jQuery( callback )
+위와같이 사용할수있따.
+
+
+화면상 글뒤에 추가하려면 append를 사용해야한다.
+
+insertafter,insertbefore 도있는데 DOM 구조가 다름
+
+
+$를 안쓴다.
+http://api.jquery.com/jQuery/
+http://api.jquery.com/jQuery.noConflict/
+$.noConflict(); 를 입력하고 jquery를 $대신에 사용한다.
+
+
+함수안에서는 $기호를 쓸 수 있다.
+
+jquery(document).ready(function($){
+  $().css('','');
+});
+
+위와 같이 사용할 수 있다.
+
+
+
+http://api.jquery.com/category/traversing/
+탐색
+
+find fillter ..등등
+
+$('div:eq(0)').css('border','1px solid red');
+$('div').eq(1).css('color','yellow');
+        결과는 똑같고 필터처리방식으로 사용됨 
+
+http://api.jquery.com/find/ 
+
+.find( selector ) 1.0  
+.find( element )  1.6  
+
+
+
+
+$(document).ready(function(){
+        $('div').css('border','1px solid red')
+                .find('p').css('backgroundColor','yellow')
+                .find('em').css('fontSize','30px');
+        
+    });
+$(‘p’).find(‘em’) == $(‘p em’) 같은 의미이다.
+
+
+
+ $('.fm1').val('안녕ㅇㅇㅇㅇㅇㅇㅇ');
+
+넣고 
+        var data=$('.fm').val();
+
+value 값을 얻어 온다...(data에 넣는다)
+
+
+//.text() .html()차이점이있다.
+
+
+<div>안녕하세요222</div>
+
+안녕하세요222 이와 같이 text(); 는 텍스트 그대로 입력되고
+
+html(); 안에 태그를 넣으면 태그로 입력되어 html 태그가 적용된다.
+
+
+
+
+.filter()
+
+http://api.jquery.com/filter/#filter-selector
+
+
+
+
+.filter( selector )
+Returns: jQuery
+Description: Reduce the set of matched elements to those that match the selector or pass the function's test.
+version added: 1.0
+
+.filter( selector )
+selector
+Type: Selector
+A string containing a selector expression to match the current set of elements against.
+version added: 1.0
+
+.filter( function )
+function
+Type: Function( Integer index, Element element ) => Boolean
+A function used as a test for each element in the set. this is the current DOM element.
+version added: 1.4
+
+.filter( elements )
+elements
+Type: Element
+One or more DOM elements to match the current set of elements against.
+version added: 1.4
+
+.filter( selection )
+selection
+Type: jQuery
+An existing jQuery object to match the current set of elements against.
+
+
+:odd 홀수
+
+가족관계로 DOM구조 설명하면 이해하기 쉽다.
+
+
+
+.end()    이전요소 집합을 반환함
+위로 올라간것이 아니고 뒤로 돌아가 반환함.
+
+
+http://api.jquery.com/end/
+
+
+
+.parent() 부모 요소로 반환
+
+http://api.jquery.com/parent/
+
+$(document).ready(function(){
+            
+            var p1=$('div p').parent(); 
+                             
+            var p2=$('div p').parents();
+                             
+            alert(p1.text());
+                      
+            alert(p2.text());
+                   
+            
+        });
+
+
+
+.prop()
+Category:                               General Attributes
+Categories: Attributes | Manipulation > General Attributes
+
+.prop( propertyName )
+
+.prop( propertyName, value )
+
+.prop( properties )
+
+.prop( propertyName, function )
+
+ $(document).ready(function(){
+
+           $('#btn').click(function(){
+
+                var d=$('input[name="fav"]');
+                    $(d).each(function(index,item){
+                        var result=$(item).prop('checked');
+                                           
+                        console.log(result);
+                        
+                        
+                    });
+                 
+             });
+             
+         });
+.attr()과 .prop()는 무었이 다른가?
+
+.attr()는HTML의속성을 취급
+.prop()는JavaScript프로파티을 취급
+양쪽은 같은 이름에서 다른게 있다.
+이 두개의 메소드는 취급하는 정보가 다릅니다. .attr()는HTML의 속석(attribute)을、 .prop()는 JavaScript의 프로파티(property)를 취급하는 메소드입니다.
+여기에서 혼란하기 십상인것이 속성과 프로파티는 「같지만 다른것」이라는 것입니다.
+간단한 예로 링크의 URL입니다.
+
+1	<a id="to_comments" href="#comments">코멘트 일람</a>
+아무것도 없는 페이지안의 점프 링크입니다. 여기 링크URL는 .attr()과 .prop()의 어느쪽이라도 취득할수있다（！）라고 생각할수도 있지만 사실 다릅니다.
+1	var $link = $('#to_comments');
+2	alert($link.attr('href'));  // href속성값을 표시
+3	alert($link.prop('href'));  // href프로파티의 값을 표시
+그럼 무엇이 표시될까요?
+.attr() → #to_comment
+.prop() → http://example.com/path/to/page#to_comment
+
+.attr() → "checked"
+.prop() → true
+이것도 결과가 다릅니다.
+또 화면의 체크박스를 클릭하여 체크를 해제해보겠습니다.
+.attr() → "checked"
+.prop() → false
+.attr()의 경우는 변하지않습니다. 체크가 되어있는지 판단을 할경우 .prop()을 사용할 필요가 있습니다.
+어떻습니까? 예상할수있었나요?
+※또 [checked속성의 값은 왜 checked라고하는 문자열이 될까?]라는 이야긴 HTML의 이야기가 되기때문에 하지않겠습니다. 간단히 설명하면 checked, selected같은 값이 없는 속성의 값은 속성의 이름과 같아집니다.
+.attr()과 .prop()사용법은 어떻게 판단하면 좋을까?
+
+음...감이네요... JavaScript에 익숙해지면 큰문제가 되지않을거라고 생각합니다.
+간단하게 말해서 HTML에 쓴 속성의 값을 취급하고 싶을경우는 .attr()을 이외의 JavaScript의것을 할경우는 .prop()을 사용하면 어떨까요?
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

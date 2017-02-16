@@ -1,0 +1,1059 @@
+객체생성시
+인스턴스생성시
+new가 동작될때 new만날때
+
+리턴되는 타입을 언급 안한다.타입타입
+
+여러개 정의할 수 있다. 매개변수 타입 순서 개수가 다를때 오버로딩이라한다.
+
+System.out.println("continue?");
+String yn=in.readLine();
+if(yn.equals("n")||yn.equals("N"))  //문자의 조건은 equals를 사용한다!
+break;
+
+
+
+
+/*이름 국어 영어 총점 평균 
+ * 
+ * 
+*/
+import java.io.*;
+public class SnngJuckTest {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+String[] name=new String[10];
+int[] kor =new int[10];
+int[] eng=new int[10];
+int[] tot=new int[10];
+float[] avg =new float[10];
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+int index=0;
+ //while(true) //
+for (int i = 0; i < 10; i++) {
+	 System.out.println("input name");
+	 //name[index++]
+	 name[i]=in.readLine();
+	 System.out.println("input kor");
+	 kor[i]=Integer.parseInt(in.readLine());
+	 System.out.println("input eng");
+	 eng[i]=Integer.parseInt(in.readLine());
+	 tot[i]=kor[i]+eng[i];
+	 avg[i]=tot[i]/2.0f;
+	 System.out.println("continue?");
+	 String yn=in.readLine();
+	 index++;
+	 
+	 if(yn.equals("n")||yn.equals("N"))
+		 
+		 break;
+	 
+ } //end  for
+    for (int i = 0; i < index-1; i++) {
+		for (int j = i+1; j < index; j++) {
+			if(tot[i]<tot[j])
+			{
+				String iname="";
+				iname=name[i];
+				name[i]=name[j];
+				name[j]=iname;
+				int imsi;
+				imsi=kor[i];
+				kor[i]=kor[j];
+				kor[j]=imsi;
+				
+				imsi=eng[i];
+				eng[i]=eng[j];
+				eng[j]=imsi;
+				
+				imsi=tot[i];
+				tot[i]=tot[j];
+				tot[j]=imsi;
+				
+				float iavg=avg[i];
+				avg[i]=avg[j];
+				avg[j]=iavg;
+				
+				
+			}
+		}
+	}
+    System.out.println("이름\t 국어\t 영어\t 총점\t 평균");
+    for (int i = 0; i < index; i++) {
+    	  System.out.printf("%s \t %d \t %d \t %d \t %.1f\n"
+     			 , name[i], kor[i], eng[i], tot[i], avg[i]);
+	}
+
+	}
+
+}
+
+4/2=2+""String 타입
+
+5/2>2.5+""
+
+6/0> 0으로 나눌수 없습니다.
+
+\\\\\\\\\\\\
+import java.io.*;
+public class Hwtest2 {
+
+     public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+     BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
+     
+     System.out.println("input s1");
+
+     int su1=Integer.parseInt(in.readLine());
+
+     System.out.println("input s2");
+
+     int su2=Integer.parseInt(in.readLine());
+
+     System.out.println("+ - * / 입력");
+
+     String op=in.readLine(); 
+           입력 받은 옵션스트링
+     
+     Cal ins = new Cal();
+       객채 생성
+     int result = 0;
+     필요한 값
+     if(op.equals("+"))
+      if문에 String은 equals 를 사용한다.
+    	{
+         result= ins.add(su1, su2);
+          //객체 호출할때 아래 바로 출력할 수 있다.
+            // System.out.println(result=ins.add(su1,su2);            
+         System.out.println(su1+"+"+su2+"="+result);
+          
+    	}
+     else if (op.equals("-"))
+     {	result= ins.sub(su1, su2);
+     System.out.println(su1+"-"+su2+"="+result);
+     }
+     else if(op.equals("*"))
+     {
+    	 result=ins.mul(su1, su2);
+    	 System.out.println(su1+"*"+su2+"="+result);
+     }
+    	 
+     else if(op.equals("/"))
+     {
+    	 
+    	 String r= ins.div(su1, su2);
+    	 System.out.println(su1+"/"+su2+"="+r);
+     }
+     else 
+    	 System.out.println("잘못된 연산자입니다.");
+	}
+
+}
+\\\\\\\\\\\\
+
+public class Cal
+{
+	private int su1,su2;
+	public int add(int su1,int su2)
+	{
+		return su1+su2;
+	}
+	public int sub(int su1, int su2)
+	{
+		return su1-su2;
+	}
+	public int mul(int su1,int su2)
+	{
+		return su1*su2;
+	}
+	public String div(int su1, int su2)
+	{
+		if(su2==0)
+			return "0으로 나눌수 없다.";
+		else if (su1%su2==0)
+			return (su1/su2)+"";
+		else
+			return (su1/(float)su2)+"";
+		
+		 
+	}
+}
+\\\\\\\\\\\\\\\\\\
+
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class fact
+{
+	public int  fact(int num)
+	{
+		int tot=1;
+		if(num==0)
+			return 1;
+		else 
+			for (int i = num; i > 0; i--) 
+				tot*=i;
+				return tot;
+			
+	}
+}
+public class Fact {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		int num=4;
+		System.out.println("input num");
+		num=Integer.parseInt(in.readLine());
+	   fact ins= new fact();
+	   System.out.println(num+"!"+"="+ins.fact(num));
+		
+        
+	}
+
+	
+
+	
+
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+기존에 있던 생성자를 활용해서 내 생성자를 만든다.
+
+
+
+class This3
+{
+	private String name;
+	private int age;
+	private String addr;
+	public This3(String name,int age,String addr)
+	{
+		this.name=name;
+		this.age=age;
+		this.addr=addr;
+	}
+	public This3(String name)//기본 리턴 값을 지정한 생성자를 활용할 수 있다.
+	{
+		this(name,0,"서울");
+	}
+	public String prt()
+	{
+		return "name:"+name+",age:"+age+",addr:"+addr;
+	}
+}
+public class ThisTest3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		This3 ins = new This3("김하나");//하나의 매개변수만 넘김
+        System.out.println(ins.prt());//저장되지않고 바로 값을 받을 수 있음
+	}
+
+}
+
+상수 
+  final 변수 앞에 final붙이면 상수
+
+
+
+변수 
+
+  int su=2
+su=23
+su=532
+
+
+
+지역변수는 
+
+class T
+{
+ int su; //인스턴스 변수 (지역변수메모리에 안들어감)
+}
+
+
+class Test
+
+{
+  public Test
+
+
+main(String[] arg) main 메서드 스트링 매개변수
+
+메서드 안에 쓰는 변수 지역변수 스택
+
+ int su;;
+
+T ins = new T();//지역변수
+
+public 접근 지정자 접근 제한자.
+ 
+private 클래스 내에서 접근할 수 있다.
+public  어디서든 접근 할 수 있다.
+static 클래스가 로딩시에 자동으로 읽어진다.
+정적변수 static 변수 클래스가 불러올때 읽어진다 해서 클래스변수. 
+
+상속!
+
+공통점정보  부모 클래스 슈퍼 클래스 
+
+세부된정보   자식 클래스 서브 클래스
+
+한부모 클래스만 상속확장 extends (부모클래스)
+
+
+    스택         :         힙
+
+ins1==ins2              equals
+
+
+
+
+
+public class Cal
+{
+	//private int su1,su2;
+	public int add(int su1,int su2)
+	{
+		return su1+su2;
+	}
+	public int sub(int su1, int su2)
+	{
+		return su1-su2;
+	}
+	public int mul(int su1,int su2)
+	{
+		return su1*su2;
+	}
+	public String div(int su1, int su2)
+	{
+		if(su2==0)
+			return "0으로 나눌수 없다.";
+		else if (su1%su2==0)
+			return (su1/su2)+"";
+		else
+			return (su1/(float)su2)+"";
+		
+		 
+	}
+}
+
+class Ani2
+{
+	public void prt(){System.out.println("ani2 prt!!");}
+}
+class Dog2 extends Ani2
+{
+	public void view()	{System.out.println("view");}
+}
+public class ClassCastTest1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Ani2 ins=new Dog2();
+		Ani2 ins = new Dog2();
+	    Dog2 ins2 = (Dog2)ins;
+	    ins2.prt();
+	    ins2.view();
+	    //Dog2 ins3 =(Dog2)new Ani2();//Exception in thread "main" view java.lang.ClassCastException: Ani2 cannot be cast to Dog2 at ClassCastTest1.main(ClassCastTest1.java:18)
+
+	    Ani2 ins3=new Ani2();
+	    		System.out.println(ins instanceof Dog2);
+		System.out.println(ins2 instanceof Dog2); //해당 객체가 뒤에걸로 바꿀때 괜찬은지 여부
+		
+
+
+	}
+
+}
+
+
+class A1
+{
+	void t1(){System.out.println("A1-t1");}
+}
+class B1 extends A1
+{
+	void t2(){System.out.println("b1-t2");}
+}
+
+public class ClassCastTest2 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      A1 ins=new B1();
+     //  System.out.println(ins instanceof B1); 
+	 B1 ins2;
+      if(ins instanceof B1)	
+	  {
+		  ins2=(B1)ins;
+		  ins2.t1(); ins2.t2();
+	  }
+     A1 ins3=new A1();
+     B1 ins4;
+       if(ins3 instanceof B1)
+       {
+    	   ins4=(B1)ins3;
+    	   ins4.t1(); ins4.t2();
+       }else
+       {
+    	   System.out.println("변경안됨!!");
+       }
+		
+	}
+}
+
+
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class fact
+{
+	public int  fact(int num)
+	{
+		int tot=1;
+		if(num==0)
+			return 1;
+		else 
+			for (int i = num; i > 0; i--) 
+				tot*=i;
+				return tot;
+			
+	}
+}
+public class Fact {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		int num=4;
+		System.out.println("input num");
+		num=Integer.parseInt(in.readLine());
+	   fact ins= new fact();
+	   System.out.println(num+"!"+"="+ins.fact(num));
+		
+        
+	}
+
+	
+
+public class FinalTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+final int su=10;// final 은 상수로 입력 된다.
+    //su=40;//The final local variable su cannot be assigned. It must be blank and not using a compound assignment
+   final int kor;       //선언했을때 안만들어졌다가 .값이 할당 됬을때 넣었을때 만들어짐(메모리가)  
+	kor =20;// 할당했을때 메모리가 만들어짐
+	}
+
+}
+
+/*fiinal 멤버변수
+ * 생성자를 이용해서 final 변수를 사용할 수 있다. 초기화 할수 있다.
+*/
+class Final2
+{
+	public final int su=10;//public final int su;;//The blank final field su may not have been initialized
+	public final int su2;
+	public Final2(int su2)
+	{
+		this.su2=su2;
+	}//객체가 생성 됬을때 메모리가 지정 할당 되어 서 생성자로 다룰수 있다.
+}
+public class FinalTest2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Final2 ins = new Final2(20);
+		Final2 ins2 = new Final2(30);
+		System.out.println(ins.su);  //지정된값
+		System.out.println(ins2.su); //지정된값
+		System.out.println(ins.su2); //20 ins객체를 위에서 만들었을때 생성자를 이용해서 값을 (매개변수를)사용했다.그값을 출력
+		System.out.println(ins2.su2);//30 
+		   //ins2.su2+=30;///int su=10;su+=30; su=su+30;
+		//ins2.su2=ins2.su2+30 //
+	
+	}
+
+}
+
+
+class Fi3
+{
+	private final String name;
+	private final int age;
+	 public Fi3(String name,int age)
+	 
+	 {
+		 this.age=age;
+	 this.name=name; 
+	 }
+}
+public class FinalTest3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      
+	}
+
+}
+
+
+import java.io.*;
+public class Hwtest2 {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+     BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
+     
+     System.out.println("input s1");
+     int su1=Integer.parseInt(in.readLine());
+     System.out.println("input s2");
+     int su2=Integer.parseInt(in.readLine());
+     System.out.println("in?");
+     String op=in.readLine();
+     
+     Cal ins = new Cal();
+     int result = 0;
+     if(op.equals("+"))
+    	{result= ins.add(su1, su2);//객체 호출할때 아래 바로 출력할 수 있다.
+     System.out.println(su1+"+"+su2+"="+result);
+    	}
+     else if (op.equals("-"))
+     {	result= ins.sub(su1, su2);
+     System.out.println(su1+"-"+su2+"="+result);
+     }
+     else if(op.equals("*"))
+     {
+    	 result=ins.mul(su1, su2);
+    	 System.out.println(su1+"*"+su2+"="+result);
+     }
+    	 
+     else if(op.equals("/"))
+     {
+    	 
+    	 String r= ins.div(su1, su2);
+    			 System.out.println(su1+"/"+su2+"="+r);
+     }
+     else 
+    	 System.out.println("잘못된 연산자입니다.");
+	}
+
+}
+
+
+public class MathTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    System.out.println(Math.PI);
+    float p=Math.abs(-10.0f);
+    System.out.println(p);
+    //double r1 = Math.floor(10.9);
+    double r1 = Math.floor(10.2);
+    System.out.println(r1);
+    double r2 = Math.ceil(10.6);
+    System.out.println(r2);
+	}
+
+}
+
+
+/*
+ * 메서드 오버로딩
+ *  클래스 내에 이름이 같은 메서드를 여러개 정의할 수 있다. 만들수 있다.
+ *  
+ *  메서드 이름이 같으나 매개변수 타입 순서 개수 가 다를때 다른 메서드로 인식한다.
+ *  단 리턴타입과 상관 없다. (int su= ins.prt();
+ *                                          ins.prt(); 매개 변수가 없어 고의로 리턴을 안받음.
+ *                     
+ *                              
+*/
+class Overloading1
+{
+	
+}
+public class OverLoading1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+class Ref1
+{
+	int su = 10;
+}
+public class RefTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ref1 ins1 = new Ref1();
+		Ref1 ins2 = new Ref1();
+		System.out.println(ins1==ins2);//==equals 로 객체를 비교..결과:False
+		System.out.println(ins1.equals(ins2));                                 // False
+		System.out.println("======");
+		System.out.println(ins1.su==ins2.su);                                //True
+		System.out.println("======");//=값을 비교 ==객체와 객체와 객체를 비교
+		Ref1 ins3 =ins1;                                          //가리킨다.                           
+		System.out.println(ins1==ins3);                 //가리킨것을 객체비교 =참조변수값  equals 객체들에 대한 정보.
+		System.out.println(ins1.equals(ins3));
+		System.out.println("======");
+		
+
+	}
+
+}
+
+
+/*이름 국어 영어 총점 평균 
+ * 
+ * 
+*/
+import java.io.*;
+public class SnngJuckTest {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+String[] name=new String[10];
+int[] kor =new int[10];
+int[] eng=new int[10];
+int[] tot=new int[10];
+float[] avg =new float[10];
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+int index=0;
+ //while(true) //
+for (int i = 0; i < 10; i++) {
+	 System.out.println("input name");
+	 //name[index++]
+	 name[i]=in.readLine();
+	 System.out.println("input kor");
+	 kor[i]=Integer.parseInt(in.readLine());
+	 System.out.println("input eng");
+	 eng[i]=Integer.parseInt(in.readLine());
+	 tot[i]=kor[i]+eng[i];
+	 avg[i]=tot[i]/2.0f;
+	 System.out.println("continue?");
+	 String yn=in.readLine();
+	 index++;
+	 
+	 if(yn.equals("n")||yn.equals("N"))
+		 
+		 break;
+	 
+ } //end  for
+    for (int i = 0; i < index-1; i++) {
+		for (int j = i+1; j < index; j++) {
+			if(tot[i]<tot[j])
+			{
+				String iname="";
+				iname=name[i];
+				name[i]=name[j];
+				name[j]=iname;
+				int imsi;
+				imsi=kor[i];
+				kor[i]=kor[j];
+				kor[j]=imsi;
+				
+				imsi=eng[i];
+				eng[i]=eng[j];
+				eng[j]=imsi;
+				
+				imsi=tot[i];
+				tot[i]=tot[j];
+				tot[j]=imsi;
+				
+				float iavg=avg[i];
+				avg[i]=avg[j];
+				avg[j]=iavg;
+				
+				
+			}
+		}
+	}
+    System.out.println("이름\t 국어\t 영어\t 총점\t 평균");
+    for (int i = 0; i < index; i++) {
+    	  System.out.printf("%s \t %d \t %d \t %d \t %.1f\n"
+     			 , name[i], kor[i], eng[i], tot[i], avg[i]);
+	}
+
+	}
+
+}
+class St2
+{
+	private static final int su;//로딩될때 초기화시키는방법
+	//private static final int su=10; 그리고 static에 초기화 할수 있음
+	static
+	{
+		su=20;
+	 System.out.println("Static초기화블록");
+	}
+	{
+		System.out.println("초기화블록");
+		
+	}
+	
+	public St2()
+	{
+		System.out.println("생성자");
+	}
+}
+
+
+public class Static2Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ St2 ins = new St2();
+ St2 ins2 =new St2();
+	}
+
+}
+
+
+/*클래스변수     : 클래스이름.변수 메서드영역에 할당되고 클래스로 로딩시 읽어진다.
+ * 클래스메서드 : 클래스이름.메서드
+* 지역변수 (매개변수 포함)
+* 인스턴스 변수는 사용못함
+* 
+*/
+class StMethod1 
+{
+	String name;
+	static String addr;
+	public static void prt(int age)//클래스 메서드/ static 메서드 /정적 메서드 같은의미임
+
+	{  
+		int su =20;
+		System.out.println(addr);
+		//System.out.println(name);
+		System.out.println("prt");
+		System.out.println(su);
+	}
+}
+public class StaticMethodTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//다른 클래스 메서드를 사용할시
+		StMethod1.prt(10);
+
+	}
+
+}
+/*static int su; //static 변수 or정적변수
+ * 객체와 무관하게 메모리가 할당.(메서드 영역)
+ * 클래스 로딩시에 메모리가 할당
+ * 사용 방법 클래스 이름.변수
+ * 
+*/
+class St1
+{
+//	public int age;
+	//public static int age; //static 변수 , 정적 변수//출력 100,100
+	//public static final int age;
+	//                          값을  못바꾼다. 읽기만 가는 얻어오
+}  //범용이지만 값을 못바꾼다. //final 상수 생성자로 다룰수있는 값
+public class StaticTest1 { 
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    /*   St1 ins =new St1();
+       ins.age=20;//
+       St1 ins2=new St1();
+       ins2.age=100;  //   //여기까지 인스턴스만//
+       System.out.println(ins.age);
+       System.out.println(ins2.age);
+       System.out.println(St1.age);//
+*/	}
+
+}
+
+
+
+class Ani//부모정보
+{
+	public void see()
+	{
+		System.out.println("본다.");
+	}
+	public void run()
+	{
+		System.out.println("달린다.");
+	}
+}//부모클래스 super_class
+
+
+class Dog extends Ani//extends Ani부모클래스에 확장  하나만 쓸 수 있다.
+{
+	public void sound()
+	{
+		System.out.println("RRR~RR!");
+		
+	}
+	public void doing()
+	{
+		System.out.println("문다");
+	}
+}//자식클래스 sub_class
+public class SuperSubtest1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ani ins = new Ani();   
+		Dog ins2 = new Dog();
+		ins.see();
+		ins.run();
+		System.out.println("----");
+		ins2.see();
+		ins2.run();
+		ins2.doing();
+		ins2.sound();
+		
+		Ani ins3=new Dog();//??//Dog 메서드가 Ani메서드에 확장소속 되어있어서 객체를 생성할 수 있다? 순서대로 내려오다가 extends Ani가 메모리에있는지
+		//Dog ins4=new Ani();//??//Dog에서 Ani객체가 없다.
+		ins3.run();
+		ins3.see();
+		//ins3.sound();
+		Dog ins4= (Dog)new Ani();//Exception in thread "main" java.lang.ClassCastException: Ani cannot be cast to Dog at SuperSubtest1.main(SuperSubtest1.java:46)
+		                                      //강제 형변환 하면 안된다.
+
+		
+
+	}
+
+}
+
+
+class This1
+{
+	private String name;
+	private int age;
+	private String addr;
+	private String gen;
+	public This1(String name)
+	{
+		this.name=name;
+	}
+	public This1(String name,int age)
+	{
+		//this.this1.name 반복되는걸 위에있는걸 활용
+		this(name);
+		this.age=age;
+	}
+	public This1(String name,int age, String addr)
+	{
+		/*this.name=name;
+		this.age=age;*/
+		this(name,age);
+		this.addr=addr;
+		
+	}
+	public This1(String name,int age, String addr, String gen)
+	{
+		/*this.name=name;
+		this.age=age;
+		this.addr=addr;*/
+		this(name,age,addr);
+		this.gen=gen;
+	}
+	public void prt()
+	{
+		System.out.printf("%s%d%s%s",name,age,addr,gen);//print 주의
+	}
+}
+public class ThisTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       This1 ins = new This1("rrr",20,"seoul","Men");//객체를 생성하고 매개변수를 사용호출
+       ins.prt();//새로운 변수 객체안에 This1객체안에 생성자 객체를 사용
+	}
+
+}
+
+class This2
+{
+ public This2()
+ {
+	 System.out.println("no-arg constructor");
+ }
+ public This2(String name)
+ {
+	 this();//항상 처음에 작성해야한다.
+	 System.out.println("name-agr constructor");
+	 //this();//항상 처음에 작성해야한다. error
+ }
+ public This2(String name,int age)
+ {
+	 this(name);//
+	 System.out.println("name-age-arg constructor");
+	 
+ }
+ 
+}
+public class ThisTest2 {
+
+	public static void main(String[] args) 
+	{
+
+     This2 ins = new This2 ("kim",22);
+     
+     
+	}
+
+}
+
+class This3
+{
+	private String name;
+	private int age;
+	private String addr;
+	public This3(String name,int age,String addr)
+	{
+		this.name=name;
+		this.age=age;
+		this.addr=addr;
+	}
+	public This3(String name)//기본 리턴 값을 지정한 생성자를 활용할 수 있다.
+	{
+		this(name,0,"서울");
+	}
+	public String prt()
+	{
+		return "name:"+name+",age:"+age+",addr:"+addr;
+	}
+}
+public class ThisTest3 {
+
+	public static void main(String[] args) {
+		
+		This3 ins = new This3("김하나");//하나의 매개변수만 넘김
+        System.out.println(ins.prt());//저장되지않고 바로 값을 받을 수 있음
+	}
+
+}
+
+
+매개변수 parameter
+
+인자 argument
+
+출력 return
+
+메소드 앞에 타입을 정해 리턴값 타입을 같게한다.
+
+calculator c1 = new calculator()
+
+객체가 담겨있는 변수 c1
+
+그 인스턴스 자신을 의미하는 this
+
+new 통해 객체를 생성해서 인스턴스를 만든다.(인스턴스 할당한다.
+
+클래스 : 설계도
+인스턴스 : 제품
+
+
+ c1의 데이터 타입이 무엇이라는 의미??
+
+Calculator라는 의미
+
+클래스를 만든다는 것은 사용자 정의 데이터 타입을 만드는 것과 같은 의미
+
+변수 : 상태
+메소드 : 행동
+
+데이터 타입을 사용자정의타입을 만드는 것이다.
+
+Calculator c1 = new Calculator();
+String[] args;
+
+위에 둘다 공간을 확보한다.메모리를 확보한다.
+
+클래스 멤버  (변수와 메서드)
+
+인스턴스 멤버 (변수와 메서드) 변수와 메서드가 멤버이다.구성원!!
+ 
+인스턴스 소유 의 변수  인스턴스마다 다른 값을 가질수있는 변수
+
+클래스의 소유의 변수 클래스는 클래스 변수 하나로 모든 인스턴스에서 접근할 수 있는 변수
+
+클래스 소유에 있는 변수는 인스턴스에서 접근할 수있다. 
+
+static 변수는 이 변수가 클래스에 소속이 된다라는 의미임 //인스턴스의 멤버가아님;
+
+이 변수는 모든 인스턴스에서 접근할 수 있다고 선언한것임.
+
+final 지정되면 수정할 수 없도록 하는 단어임..상수!임 지역변수 전역변수로 인식.
+
+
+
+static은 동일한 값임 클래스 내에서...인스턴스에서 접근할수있다 클래스내에서 다 똑같은 값임
+
+new 를 통해 객체를 생성하고 
+
+인스턴스화 한것(메모리에 할당)
+
+클래스의 변수가 위의 방법이고
+
+클래스의 메서드는
+
+public static void sum(int left, int right)
+{
+       system.out.println(left+right); 
+}
+
+이런식으로 되어있다면 호출작성법은
+
+
+위에 메서드가 포함된 클래스 이름쩜. sum(20,30)이런식으로 사용할 수 있다
+
+인스턴스 메소드는 클래스 멤버에 접근 할수있따.
+
+클래스 메소드는 아직 생성되지 않은 인스턴스에 접근 할 수 없다.
+
+인스턴스 멤버 , 인스턴스 변수는 인스턴스가 만들어지면서 생성되는데 클래스 메소드는
+
+인스턴스가 생성되기전에 만들어지기 때문에 존재하지 않은 인스턴스 변수에 접근하는것과 같다.
+
+Calculator c1 = new Calculator();
+           |      |
+    인스턴스화(를)생성자를 만든다.
+
+생성자는 값을 반환하지 않는다. 
+
+생성자는 인스턴스를 생성해주는 역할을 하는 특수한 메소드라고 할 수 있다. 
+그런데 반환 값이 있다면 엉뚱한 객체가 생성될 것이다. 
+따라서 반환 값을 필요로하는 작업에서는 생성자를 사용하지 않는다. 
+반환 값이 없기 때문에 return도 사용하지 않고, 
+반환 값을 메소드 정의에 포함시키지도 않는다.
+생성자의 이름은 클래스의 이름과 동일하다.
+자바에서 클래스의 이름과 동일한 메소드는 생성자로 사용하기로 약속되어 있다.
+
+SubstractionableCalculator c1 = new SubstractionableCalculator();
+
+이렇게 작성해도 sum avg 를 사용할 수 있는이유는 extends calculator 확장 하는것을 포함했기때문
+
+
+생성자는 인자가 없는 기본 디폴트 constructor 를 생성해줘야한다.
+
+종속 상속 extends 를 사용했을때 상위 클래스에 기본생성자가 있는지 확인해야한다.
+
+자식 클래스 sub클래스 에서 super(인자갑1 인자갑2)이렇게 한다면 상위클래스에 보내고 사용한다는의미.
+
+
+overriding 재정의를 말한다. //개수 타입 순서같아야한다.
+
+overloading 이름은 같지만 시그니처는 다른 메소드를 중복으로 선언 할 수 있는 방법을 메소드 오버로딩(overloading)이라고 한다.
+
+타입개수 순서
+
+

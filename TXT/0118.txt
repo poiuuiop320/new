@@ -1,0 +1,41 @@
+list vector arraylist LinkedList
+map
+key value   key중복 x 순서 x 
+Hashtable Hashmap//Iterator 타입  emuration타입
+set
+
+add
+del
+mod
+disp
+search
+
+DTO
+
+hastag
+
+Class RuntimeException
+http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html
+
+error              exception 예외
+에러       runtimeexception    비runtimeexception 
+>checked    >unchecked         >checked
+
+
+
+	입력                    출력
+문자	Reader			Writen
+바이트 	InputStream		OutputStream
+
+System.in
+파일 로 받고
+네트워크 로 받고
+
+Buffered Reader 
+버퍼기능   문자
+InputStream Reader
+              문자
+
+jvm 기준으로 출력    입력
+jvm 받는건 
+    

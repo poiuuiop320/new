@@ -1,0 +1,85 @@
+switch(dept){//jdk7이후에 String 사용가능 byte short int char string
+
+*스택 사용하다 지워지는 메모리 스택
+
+for(초기값;조건값;증감값;)
+{
+ 
+}
+
+import java.io.*;
+ throws Exception
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+Integer.parseInt(in.readLine());
+
+
+for문에서 세로 의 횟수 은 내부 for문이고
+
+외부 for문에서 가로의 횟수 는 외부 for문의 횟수설정해야한다.
+
+
+
+
+합계를 계속 더하는 값,카운터, 횟수 등 증가하는 값을 알고싶다면
+
+다른 변수에 증가를 시켜 그값을 반복문안에 넣고 출력하면된다.
+
+
+내부반복문에 외부반복문의 조건을 작성한다.
+
+내부반복문을 외부반복문의 크기만큼 반복하고 싶다면
+
+내부조건에 외부 변수의 크기를 넣는다
+//fortest4
+
+for문안에 break 조건문넣어 빠져나올 수 있다.
+
+
+높이 받고
+
+문제 1
+내려가는계단
+ 외부는 ++
+내부는 --
+**** 
+***
+**
+*
+test5
+
+외부는 ++
+내부는 --
+****     ****
+ *** " "+ ***
+  ** ""+""+ **
+   * ""+""+""+ *
+문제2
+
+공간 외부++ 
+     내부++
+
+끝값이 큰지작은지 같은게 들어가는지
+ 처음값 끝값만 생각
+
+String 은 equals 로 비교를 해야한다.
+
+if((yy).equals("n")) break;
+
+int[] arr1=new int[3]//개수
+int[] arr2;
+
+arr2=new int[4]
+
+int[] arr
+int arr[]
+
+heap 동적할당
+
+int[] arr=new int[3]
+
+런타임 에러
+
+
+컴파일 에러
+
+배열은 처음초기화 했을때 지정된후로 변하지 않는다.

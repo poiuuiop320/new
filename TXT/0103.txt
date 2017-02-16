@@ -1,0 +1,825 @@
+windows.onload=function()
+{
+ 
+}
+document.getElementById("").onclick=function()
+{
+
+}
+document.getElementById("").innerHTML="<p>hello"+i+"</p>";
+
+var arr=[10,20,30,"hong","kim",true,20.3];
+arr.forEach(callback[, thisArg])
+arr.forEach(function(item, index){
+                console.log(item);
+                console.log(index);
+                console.log("=========");}); 
+
+
+arr2.addr.forEach(function(item){
+     console.log(item);
+      });    
+callback
+각 요소에 대해 실행할 함수, 인수 셋을 취하는:
+currentValue
+배열에서 현재 처리 중인 요소.
+index
+배열에서 현재 처리 중인 요소의 인덱스.
+array
+forEach()가 적용되고 있는 배열.
+thisArg
+선택 사항. callback을 실행할 때 this로서 사용하는 값.
+
+ for(var i=1; i<=10; i++)
+        {
+            document.write(i+"<br>");
+             if(i==5)
+                 break;            //브레이크            
+        }
+         document.write("========<br>");
+        for(var i=1; i<=10; i++)
+         {
+              if(i==5) continue;   //5값이면 넘어가기
+             document.write(i+"<br>");
+             
+         }
+
+
+function 함수명1(파라미터1)
+{
+
+}
+
+함수명1(function 함수명(파라미터)
+{
+
+});
+
+function sum(su1, su2)
+{
+  return su1+su2;
+}
+        
+var result=sum(10,20); //함수에 파라미터 전송
+
+
+
+var add=function(a, b) //변수에 함수선언(함수에 ab파라미터)
+    {
+        return a+b;
+    }
+    
+    alert(add(10,20));
+
+var irum=document.getElementById("id이름"); html바디안에 id태그를 가져온다
+var age=document.getElementById("id이름");
+
+
+Array.isArray(person1.fav)
+Array.isArray(obj)  obj = 검사할 객체. //객체가 Array라면, 참이 반환되고, 아니라면 거짓이다.
+
+forEach() 메소드는 배열 요소마다 한 번씩 제공한 함수를 실행합니다.
+arr.forEach(callback[, thisArg])
+
+person1.fav.forEach(function(item){  
+     console.log(item);});
+var person={
+         'name':'홍길동'
+         ,'age':'20'
+         ,'doing':function(act)
+        {
+            document.write(act );
+        }
+ person.doing('밥을 먹습니다.');                 11
+변수.변수배열안에값('반환값');//배열 함수에 전송 11
+
+
+function A(a, b,c)
+        {
+           document.write(a+", "+b+", "+c);    
+        }
+      A(10,20,30);
+function A()
+        {
+        }
+      A("aaa","bbb","ddd");  //함수가 두번 아래쪽이 됨
+
+
+버튼태그 2가지 1. <input type="button" value="start" id="start">
+               2.<button id="end" ></button>
+ <div id="result"></div>
+          document.write("hello");
+
+
+ <<<<<<<<<<time.js>>>>>>>>>>버튼아이디가 바디에 있음
+  window.onload=function()
+      {
+         var d;
+        document.getElementById("btn").onclick=function()
+        {
+          d=setInterval(function()
+               {
+                console.log('test');
+          
+               },100 );
+         }
+        
+        document.getElementById("btn2").onclick=function()
+        {
+           
+            clearInterval(d);
+            
+        }
+          
+      }
+
+var intervalID = window.setInterval(func, delay[, param1, param2, ...]);
+var intervalID = window.setInterval(code, delay);
+setinterval(function(){},시간);
+
+
+
+while()
+
+table{ width:700px;
+             border:1px solid silver;
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid silver;
+        }
+
+var su1=parseInt(prompt("수1을 입력하세요","0"));
+     var su2=parseInt(prompt("수2를 입력하세요","0"));
+     var imsi;
+       if(su1>su2)
+           {
+               imsi=su1;
+               su1=su2;
+               su2=imsi;
+           }
+        
+        document.write("<table>");
+        var i=1;
+      while(i<=9)
+      {
+           var j=su1; 
+          document.write("<tr>");
+          while(j<=su2)
+          {
+            document.write("<td>"+j+"*"+i +"= "+(j*i)+"</td>");
+            j++;
+          }
+          i++;
+          document.write("</tr>");
+          
+      }
+    
+      document.write("</table>");
+
+this()
+
+  function Student(name, age)
+      {
+         this.name=name;    
+         this.age=age;
+         this.prt=function()
+         {
+             console.log(this.name+", "+this.age);
+         }
+      }
+      var s1=new Student("hong",20);    
+        s1.prt();
+        console.log(s1.name);
+        console.log(s1.age);
+
+
+ $(document).ready(function(){
+          $('#btn').click(function(){
+            var d=   $('div');
+              $(d).each(function(index){
+                  if(index%2==0)
+                     $(this).css('border','1px solid red');  
+              });  
+              
+          }); 
+       });
+
+replace()replace()replace()replace()replace()replace()
+ var aaa="hong gil dong";
+      var result=aaa.replace("g","ha");   
+        console.log(aaa);
+        console.log(result);
+        var a=aaa.slice(5);
+         console.log(a);
+         var b=aaa.slice(5,7);
+         console.log(b);
+        aaa.slice(2,6);
+        sliceslicesliceslicesliceslicesliceslice
+        console.log(aaa);
+        var ch=aaa.substr(7,3);
+        console.log(ch);
+        ()substr()substr()substr()substr()substr()substr()substr
+        var ch2=aaa.substring(3,7);
+        console.log(ch2);
+
+substring()substring()substring()substring()substring()
+
+
+ /*var hi="안녕하세요 만나서 반갑습니다";
+      var len=hi.length;
+      var ch1=hi.charAt(6);   charAt()charAt()charAt()charAt()charAt()charAt()
+        
+      console.log(len);
+      console.log(ch1);*/
+        
+        
+      var hi="hello hello hello!";        
+      var len=hi.length;
+      var index1=hi.indexOf('h',2);indexOf()indexOf()indexOf()indexOf()indexOf()
+        console.log(len);
+        console.log(index1);
+        console.log(hi.toUpperCase());toUpperCase()toUpperCase()toUpperCase()toUpperCase()toUpperCase()
+
+
+var person={
+         'name':'홍길동'
+         ,'age':'20'
+         ,'doing':function(act)
+        {
+            document.write(act );
+        }
+        
+    };    
+    
+   person.doing('밥을 먹습니다.'); 
+
+
+객체 연습
+
+ var person1={
+            'name':'박길현'
+           ,'age':'28'
+          ,'fav':['운동','영화']
+      };
+      
+      var person2={
+            'name':'허수진'
+            ,'age':'26'
+      };    
+    console.log(person1.name);         배열에 객체 출력 방법두가지
+    console.log(person1['age']);    
+    console.log(person2.name);
+    console.log(person2["age"]);   
+    //console.log(person1.fav);
+     /* console.log(typeof person1.fav);
+      console.log(person1.fav.length);    
+        */
+     console.log(Array.isArray(person1.fav));    Array.isArray()Array.isArray()Array.isArray()Array.isArray()
+     for(var i=0; i<person1.fav.length; i++)
+        {
+            console.log(person1.fav[i]);
+        }
+     
+     for(var index in person1.fav)
+        {
+            console.log(person1.fav[index]);
+        }
+    console.log("================");    
+     person1.fav.forEach(function(item){   forEach()forEach()forEach()forEach()forEach()
+     console.log(item);
+     }); 
+
+
+  
+     var pi=Math.PI;                  MathMath()Math()Math()Math()Math()Math()
+        document.write(pi+"<br>");
+      var v1=Math.abs(-10);            Math.abs()Math.abs()Math.abs()
+        var v2=Math.abs(-10.2);
+        var v3=Math.abs(10.2);
+        
+        document.write(v1+"<br>");
+        document.write(v2+"<br>");
+        document.write(v3+"<br>");
+      
+         var v4=Math.sin(90* (1/180)*Math.PI);   Math.sin()Math.sin()Math.sin()
+        console.log(v4);                      Math.PI()Math.PI()Math.PI()
+         
+        var v5=Math.pow(2,3);      Math.pow(2,3)Math.pow(2,3)Math.pow(2,3)Math.pow(2,3)
+        console.log(v5);
+        
+        for(var i=1; i<=10; i++)
+            console.log(Math.random()); Math.random()Math.random()Math.random()Math.random()
+        
+          console.log(Math.round(10.2)); Math.round(10.2)Math.round(10.2)Math.round(10.2)Math.round(10.2)
+          console.log(Math.round(10.7));
+           console.log(Math.round(-10.2));
+          console.log(Math.round(-10.7));
+        
+        
+          console.log(Math.ceil(10.2));Math.ceil(10.2)Math.ceil(10.2)Math.ceil(10.2)Math.ceil(10.2)
+          console.log(Math.ceil(10.8));
+          console.log(Math.ceil(-10.2));
+          console.log(Math.ceil(-10.8));
+
+
+ var jumin=prompt("input jumin","");
+        //900101-1010111  slice substr  substringslice substr  substringslice substr  substring
+       /* var y=jumin.substr(0,2);substr(0,2)substr(0,2)substr(0,2)
+        var m=jumin.substr(2,2);
+        var d=jumin.substr(4,2);*/
+        var y=jumin.slice(0,2);slice(0,2)slice(0,2)slice(0,2)slice(0,2)
+        var m=jumin.slice(2,4);
+        var d=jumin.slice(4,6);
+        
+        var g=jumin.charAt(7);charAt(7)charAt(7)charAt(7)charAt(7)
+        
+        if(g=='1' ||g=='2' )
+          document.write("19"+y+"년도"+m+"월"+d+"일");
+        else
+          document.write('20'+y+"년도"+m+"월"+d+"일");
+        
+        if(g=='1' || g=='3')
+            document.write("남자");
+        else 
+             document.write("여자");
+/*
+        console.log(g);
+        console.log(y);
+        console.log(m);
+        console.log(d);
+*/
+    
+/* var prt=function()
+       {
+           document.write("prt function call!!");
+       }
+       prt();
+       prt();
+    */
+     
+    var add=function(a, b)
+    {
+        return a+b;
+    }
+    
+    alert(add(10,20))
+
+add(10,20)add(10,20)add(10,20)addadd(10,20)add(10,20)add(10,20)add(10,20)
+
+
+*     function Test2(irum,value)  // irum, value:매개변수
+      {
+            document.write(irum);
+            document.write(value);
+            
+      }
+    
+       Test2("aaa",10);
+      var t1="hong gil dong";
+      var t2=20;
+        Test2(t1, t2);*/
+        
+        
+      function sum(su1, su2)
+        {
+            return su1+su2;
+        }
+        
+        var result=sum(10,20);
+        document.write(result);
+        
+
+ /*  
+        function sayHello() //매개변수x 리턴x
+        {
+            document.write("hello!!<br>");
+            document.write("새해 복많이 받으세요<br>");
+        }
+        sayHello();  //함수호출
+        sayHello();
+    */
+        
+     function Test1()
+        {
+            var i = 20;
+            return "커피";
+        }
+    var a =Test1();
+    var a2=Test1();    
+    document.write(a+"<br>");
+    document.write(a2+"<br>");
+
+
+
+function prt(add)     callbackcallbackcallbackcallbackcallbackcallbackcallbackcallback
+    {
+       add();        
+             add(); add(); add(); add(); add(); add(); add();
+    }
+    
+     prt(function(){
+         document.write("hello!!");   
+
+     });
+     prt(function(){
+           document.write("hi~~~");
+         
+         
+     });    
+
+ for(var i=1; i<=10; i++)
+        {
+            document.write(i+"<br>");
+             if(i==5)
+                 break; break; break; break; break; break; break;break;break;break;break;break;
+            
+        }
+         document.write("========<br>");
+        for(var i=1; i<=10; i++)
+         {
+              if(i==5) continue; continue; continue; continue; continue; continue; continue; 
+             document.write(i+"<br>");
+             
+         }
+
+
+
+  var arr=[10,20,30,"hong","kim",true,20.3];
+         /* console.log(typeof(arr));
+          console.log(arr.length);    */
+        
+          arr.forEach(function(item, index){forEachforEachforEachforEachforEach
+                console.log(item);
+                console.log(index);
+              console.log("=========");
+          });  
+          console.log("=============");
+        
+         var arr2={
+               'name':'hong'
+              ,'age':'20'
+             ,'addr':['seoul','pusan']
+         };
+      console.log(arr2.name);
+      console.log(arr2['age']);
+     /* console.log(arr2['addr']);*/
+        
+      arr2.addr.forEach(function(item){
+            console.log(item);
+      });    
+
+<style>
+        p{ width:400px; height:200px; border:1px solid red;}
+    </style>
+    <script>
+       window.onload=function(){
+         document.getElementById("btn").onclick=function() document.getElementById("btn").onclick=function()
+        {
+              for(var i=1; i<=10; i++) 
+             {
+            document.getElementById("result").innerHTML+="<p>hello"+i+"</p>"; document.getElementById("result").innerHTML
+             }
+        }
+       }
+
+
+window.onload=function()
+      {   document.getElementById("aa").onclick=funttion()document.getElementById("aa").onclick=funttion()
+         document.getElementById("aa").onclick=function()
+         {
+             document.write("aaa");
+         }
+      }
+
+
+win.focus();win.focus();win.focus();win.focus();win.focus();win.focus();win.focus();win.focus();win.focus();
+
+ var output="";
+        for (var key in window){
+            output += '●'+key+':'+window[key]+'\n';
+        }
+        alert(output);
+
+
+   window.onload=function()
+      {
+          document.getElementById("ttt").innerHTML="<p>eee</p>";
+      }
+
+
+
+function Person(name)
+      {
+          this.name=name;
+      Person.prototype.prt=function()prototypeprototypeprototype
+      {
+         console.log(this.name);
+          console.log(this);
+      }
+        
+      
+      }
+      
+     var p1=new Person("hong");
+     var p2=new Person("kim");
+     
+     p1.prt();
+     p2.prt();
+
+
+ function Man(name, age, addr)
+        {
+            var name=name;
+            var age=age;
+            var addr=addr;
+         /*  this.prt=function()
+           {
+               console.log("이름 :"+name);
+               console.log("나이 :"+age);
+               console.log("주소 :"+addr);
+           }*/
+           Man.prototype.prt=function()
+           {
+              console.log("이름:"+name);
+               console.log("나이"+age);
+              console.log("주소:"+addr);
+           }
+           Man.prototype.getName=function()
+           {
+               return name;
+           }
+           Man.prototype.getAge=function()
+           {
+               return age;
+           }
+           Man.prototype.getAddr=function()
+           {
+                return addr;
+           }
+           Man.prototype.setName=function(name)
+           {
+                 Man.name=name;
+           }
+        }
+      
+       var m1=new Man("hong",20,"seoul");
+        m1.prt();
+        m1.setName("han");
+        m1.prt();    
+
+function Student(name, age)
+        {
+            /*this.name=name;
+            this.age=age;
+           */
+            var name=name;
+            var age=age;
+           
+           this.prt=function()
+           {
+               console.log(name+", "+age);
+           }
+            
+            
+        }
+    
+    var s1=new Student("hong",10);
+    var s2=new Student("kim",20);
+        s1.prt();
+        s2.prt();
+    
+   /*     console.log(s1.name+", "+s1.age);
+        console.log(s2.name+", "+s2.age);
+   */     
+
+
+
+var arr=new Array(10);
+        console.log(arr);
+
+
+ar win =window.open(" "," ","width=50px,height=50px,top=100px,left=100px");  //객체생성 
+     window.onload=function()
+     {
+        win.moveTo(0,0);   
+        document.getElementById("move1").onclick = function()
+        {
+            win.moveBy(100,0);
+        }
+        document.getElementById("move2").onclick = function()
+        {
+            win.moveBy(-100,0);
+        }
+    }
+
+ window.onload=function()
+     {
+         document.getElementById("result").onclick=function(e) var e=e||window.Event; var e=e||window.Event;
+         {
+         this.style.background="yellow";
+             console.log(event);
+         }
+         document.getElementById("result2").onclick=function(e)
+         {
+            /* var e=e||window.Event;
+               e.stopPropagation();
+*/
+             var e=e||window.Event;
+             e.stopPropagation();stopPropagation();stopPropagation();stopPropagation();stopPropagation();
+             this.style.border="2px solid blue";this.style.borderthis.style.borderthis.style.border
+             console.log(event);
+         }
+     }
+
+window.onload=function()
+    {
+        document.getElementById("changecolor").onclick=function()
+        {
+            var result=document.getElementById("result");result.style.result.style.result.style.result.style.
+            result.style.backgroundColor="red";
+            result.style.width="300px";
+            result.style.height="150px";
+            result.style.border="2px solid blue";
+        }
+    }
+
+
+
+/*for(var index in location)
+        {
+            console.log(index);
+        }*/
+   /*window.onload=function()
+   {
+       document.getElementById("btn").onclick=function()
+       {
+           location.href="http://www.naver.com";location.hreflocation.href
+       }
+   }*/
+    console.log(location.hostnames); hostnames hostnames hostnames hostnames hostnames hostnames hostnames
+        console.log(location.host); .host.host.host.host.host.host.host.host.host
+        console.log(location.port); .port.port.port.port.port.port.port.port.port
+        console.log(location.protocol); .protocol.protocol.protocol.protocol.protocol.protocol.protocol
+        document.write(navigator.userAgent); .userAgent.userAgent.userAgent.userAgent
+
+var d=new Date();
+        console.log(d.getFullYear());
+        console.log(d.getYear());
+        console.log(d.getDay());
+        console.log(d.getDate());
+        console.log(d.getMonth());
+
+
+window.onload=function()
+      {
+         var ele=document.getElementsByTagName('div');
+         for(var i=0; i<ele.length; i++)
+         {ele[i].style.backgroundColor="lightblue";}
+         var cls=document.getElementsByClassName('changefont');
+         for(var i=0; i<cls.length; i++)
+         {cls[i].style.border="1px solid black";}
+          
+      }
+      
+      //이거하면서 foreach 문이 안되는이유 Array.isarray 가 어떤 배열타입인지 확인하고 해야 한다.
+
+
+  //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener   
+       function tt()
+    {
+        this.style.border="1px solid red"; this.style this.style this.style this.style this.style 
+    }
+        function tt2()
+        {
+            this.style.background="red";
+        }
+        window.onload=function()
+    {
+       var result=document.getElementById("result");
+       result.addEventListener('click',tt2); //추가이벤트  result.addEventListener('click',tt2); //추가이벤트
+      
+    }
+  //onclick 은 DOM구조 안에서 가능하다 스크립트 생성중에 
+
+
+
+/*   window.onload=function()
+    {
+        document.getElementById('btn').onclick=function()
+        {
+            var txt=document.getElementsByTagName('input');//함수선언하고 doc.get으로 가져온다
+            var content=txt[0].value;                      //함수선언하고 가져온밸류는 넣는다 
+            console.log(content);                          //출력한다.
+            text[0].value="";                             //공백을 넣음으로 비운다
+            
+            //https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+
+
+
+            var ele1=document.createElement('h1');  //h1 엘리먼트를 추가한다. 새변수에
+createElement('h1')createElement('h1')createElement('h1')createElement('h1')createElement('h1')
+
+
+
+            var txt1=document.createTextNode(content);//새변수에 위에 받은 컨텐트를 만든다.
+createTextNode(content)createTextNode(content)createTextNode(content)createTextNode(content)createTextNode(content)
+
+            ele1.appendChild(txt1);                   //h1에 txt1을 추가한다.
+appendChild(txt1); appendChild(txt1); appendChild(txt1); appendChild(txt1); appendChild(txt1); 
+
+            document.getElementById('result').appendChild(ele1); //출력한다.
+            appendChild(ele1)appendChild(ele1)appendChild(ele1)appendChild(ele1)appendChild(ele1)
+        }
+        
+    }*/
+
+         window.onload=function()
+      {
+    document.getElementById('btn').onclick=function(){
+        var txt=document.getElementsByTagName("input");           
+          var content=txt[0].value;       
+          console.log(content);     
+            txt[0].value=""; 
+        
+        var ele1=document.createElement("h1");    //태그를 추가한다.
+        var txt1=document.createTextNode(content);
+         ele1.appendChild(txt1);
+         document.getElementById("result").appendChild(ele1);
+            
+    }
+      }
+
+
+ window.onload=function()
+      {
+         var aa;
+         document.getElementById("s_open").onclick      =    function()
+         {
+           aa=window.open("","name","width=300px; height=300px; top=100px; left=300px");
+             
+         }
+         document.getElementById("s_close").onclick     =     function()
+         {
+           aa.close();
+         }
+         
+         
+      }
+
+window.onload=function()
+    {
+        var btn=document.getElementsByTagName('button');
+        var img=document.createElement("img"); //
+createElement("img")createElement("img")createElement("img")createElement("img")
+
+
+        btn[0].onclick=function()
+        {
+            img.setAttribute("src","http://static.news.zum.com/images/52/2013/02/07/20130207000355_0.jpg");
+            img.setAttribute("alt","하정우먹방");img.setAttributeimg.setAttributeimg.setAttribute
+img.setAttributeimg.setAttributeimg.setAttributeimg.setAttributeimg.setAttributeimg.setAttribute
+            document.getElementById("aaa").appendChild(img);//출력하는 모양
+            ("aaa").appendChild("aaa").appendChild("aaa").appendChild("aaa").appendChild
+        }
+         btn[1].onclick=function()
+        {
+             document.getElementById("aaa").removeChild(img);//삭제하는 모양
+        }("aaa").removeChild("aaa").removeChild("aaa").removeChild("aaa").removeChild
+    }
+
+
+
+
+
+   function Student(name, age)
+        {
+            this.name=name;
+            this.age=age;
+        }
+         Student.prototype.prt=function()
+            {
+                console.log(this.name);
+                console.log(this.age);
+            }      
+        
+      var arrstu=[]; 
+      arrstu.push(new Student("hong",20)); 
+arrstu.pusharrstu.pusharrstu.pusharrstu.pusharrstu.push
+
+
+      arrstu.push(new Student("park",30));
+      var a1=arrstu.pop();
+pop();pop();pop();pop();pop();pop();pop();
+
+
+      
+        a1.prt();
+        a2.prt();
+
+ console.log(arrstu.length);    
+
+

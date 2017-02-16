@@ -1,0 +1,126 @@
+C:\ProgramData\Oracle\Java\javapath
+JAVA_HOME 
+%JAVA_HOME%\bin;
+PATH
+
+CMD
+javac
+java -version
+
+java
+The essential tools for any Java developer, 
+including a Java IDE, a Git client, XML Editor, 
+Mylyn, Maven and Gradle integration
+
+javaee 
+Tools for Java developers creating Java EE and Web applications, 
+including a Java IDE, tools for Java EE, JPA, JSF, Mylyn, EGit and others.
+
+
+public static void main
+ >check
+
+javac  filename.java
+
+> filename.class
+
+java filename> ctrl+f11
+
+
+//coment
+
+ctrl +shift /
+ctrl +shift \ 
+
+인터프리터 기능을 수행하는 프로그램
+
+class파일은 바이너리 파일
+jvm 에 class파일이 로딩되어 실행된다.
+
+publick static void main(string[] arg){}
+1byte 2    4    8     4     8
+byte>short>int>long>float>double
+        정수형     실수형
+      char>  문자형
+       2
+boolean 논리형
+
+byte su=+128; //127보다 큰값을 사용한다.
+
+if 문 for문 
+
+
+연산은 int type으로 변환.
+
+
+char 한글자
+String 글자모음
+
+평균 float값으로 받아야함.
+throws Exception 
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+in.readLine()
+
+
+(double)su/3;
+(double)(su/3);// 숫자.0 값이 나옴.
+
+The local variable su may not have been initialized
+
+지역변수는 초기화를 시켜줘야한다.
+
+문자가 앞에있고 +연산을 넣으면 문자로 인식되고
+
+숫자로 연산하고 싶다고 하면 괄호를 넣어야 한다.
+//산술연산+-*/%
+//+ >산술연산,연결연산이있다.+가
+
+System.out.println("입니다."+3+4);
+System.out.println("입니다."+(3+4));
+
+char 정수형포함이되는이유 int로 형변환이되기때문
+ 
+
+exclusive 같은거면 0 인 비트논리
+
+int a=10;
+int b=20;
+int c=30;
+c*=a+b;//c*(a+b); 복합대입은 오른쪽 먼저 계산..
+
+
+import java.io.*;
+throws Exception
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+in.readLine();
+
+1. UI/UX
+
+UX Magazine ? 사용자 경험과 관련된 최신 뉴스와 기사를 받아볼 수 있는 곳
+Troy Labs ? 다양한 디바이스 템플릿에서 반응형 웹을 확인 할 수 있는 곳
+Capptivate ? UI애니메이션 패턴 라이브러리
+
+2. CSS/jQuery
+
+Codrops ? 다양한 웹디자인 튜토리얼, 레이아웃 모음, jQuery 플러그인을 제공하는 웹
+Awwwards ? 우수 웹사이트 소개 및 수상작 모음집
+Media Queries ? 미디어 쿼리를 이용한 사이트 갤러리
+SpinKit ? 스플래시/로딩 애니메이션 모음집
+
+3. 디자인 템플릿
+DBF ? 디자인 포트폴리오 자료 모음집
+365PSD ? 무료 디자인 템플릿 다운로드 사이트
+One Page Love ? 원 페이지 웹디자인 템플릿 사이트
+
+4. 그 외, 유용한 사이트
+
+Degraeve ? 이미지에서 즉시 컬러를 추출해 팔레트 생성
+Granneman ? OS별 기본 서체 리스트업 사이트
+jpegmini ? 화질변화 없이 jpg파일의 용량을 줄여 주는 사이트
+
+
+
+http://kippis-design.de/
+https://www.seedlipdrinks.com/
+http://www.shopheist.com/
+http://www.ariashop.co.uk/

@@ -1,0 +1,245 @@
+﻿webcontent 에 저장 html,jsp,javascript,css
+
+aptana 설치
+
+http://download.aptana.com/studio3/plugin/install
+
+label for = id 
+
+input type text,password,radio,checkbox
+select name option value
+optgroup option
+textarea rows cols
+input summit reset 
+
+form 방식
+method 
+get
+post 
+
+action 
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+page directed 지시자
+
+contentType="text/html;  //mime type
+https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+
+request name값을 가져옴
+https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/websocket/WsHttpServletRequestWrapper.html
+
+request.setCharactoerEncoding("utf-8);
+request.getParameter();
+
+String[] food=request.getParameterValues("food");
+String result="";
+for(String index:food)
+{
+ result +=index+", ";
+}
+
+servlet 웹상에서 동작하는 자바소스
+
+http://localhost:8080/test/test.jsp
+
+web application
+
+eclipse
+ java resources
+  java servlet
+ webcontent
+   jsp,html,javascript,css 웹에 공개
+
+   web-inf 환경정보
+      lib  jar 
+      web.xml 배치서술사 deploy descriptor 
+
+xml 
+dtd 타입에대한 언급없음
+schema 
+
+
+
+printwriter out=response.getwriter();
+out.print("");
+
+
+* Servlet 인터페이스
+
+init(ServletConfig config) 
+service(ServletRequest req, ServletResponse res) 
+destroy() 
+getServletConfig() : 서블릿 초기화에 관련된 변수를 가지고 있는 ServletConfig 객체를 리턴 
+getServletInfo() : 서블릿에 대한 간단한 정보를 리턴 
+
+
+
+* ServletConfig 인터페이스 
+
+getInitParameter(String name) : name에 해당하는 초기화 파라미터 값을 리턴 
+getInitParameterNames() : 서블릿의 초기화 파라미터 이름들을 Enumeration 타입으로 리턴 
+getServletContext() : ServletContext를 리턴 
+getServletName() : 서블릿 인스턴스의 이름를 리턴 
+
+
+
+서블릿 클래스의 상속계층도
+
+<Interface> SetvletConfig ← <Abstract Class> GenericServlet ← <Class> HttpServlet
+<Interface> Servlet
+
+
+
+* GenericServlet 추상 클래스 : 프로토콜에 무관한 기본적인 서비스 기능을 제공하는 클래스로 Servlet, ServletConfig 인터페이스를 구현 
+
+init() : 서블릿 초기화 메소드로, GenericServlet.init(ServletConfig config) 메소드의 의해 호출됨. 
+log(String msg) : 로그 파일에 서블릿의 오류 메시지를 기록 
+log(String message, Throwable t) : 로그 파일에 서블릿의 오류 메시지를 기록 
+abstract void service(ServletRequest req, ServletResponse res) : Servlet 인터페이스의 service() 메소드를 추상 메소드로 남겨둠. 
+
+
+
+* HttpServlet 클래스 : GenericServlet 추상 클래스 상속 
+
+doGet(HttpServletRequest req, HttpServletResponse res) : HTTP의 GET 요청을 처리하기 위한 메소드 
+doPost(HttpServletRequest req, HttpServletResponse res) : HTTP의 POST 요청을 처리하기 위한 메소드 
+service(ServletRequest req, ServletResponse res) : GenericServlet 추상클래스의 추상 메소드 service() 구현, 아래 service() 메소드에 호출 
+service(HttpServletRequest req, HttpServletResponse res) : 클라이어트의 요청에 따라 doGet(,), doPost(,) 메소드 호출 
+
+
+
+* ServletContext 인터페이스 : 서블릿이 서블릿/JSP 컨테이너와 통신하기 위해서 사용하는 메소드 제공 
+
+예를 들면 파일의 MIME 타입을 얻거나 RequestDispatcher를 얻거나 로그파일에 기록하기와 같은 기능의 메소드를 제공한다. 
+웹 애플리케이션마다 하나의 ServletContext 객체가 존재하고 ServletContext 는 ServletConfig의 getServletContext() 메소드를 이용해서 얻을 수 있다. 
+또한 웹 애플리케이션 전체의 공동 저장소를 역할을 하는데 ServletContext에 저장된 데이터는 ServletContext를 공유하는 서블릿이나 JSP, JSP빈즈에서 자유롭게 접근할 수 있다. 
+
+setAttribute(String name, Object value) : 데이터를 이름과 값의 쌍으로 저장한다. 
+getAttribute(String name) : 이름을 이용해서 저장된 데이터를 리턴 
+removeAttribute(String name) : 이름을 이용해서 저장된 데이터를 삭제 
+getRequestDispatcher(String path) : 주어진 Path 를 위한 RequestDispatcher 를 리턴 
+getRealPath(String path) : 주어진 가상 Path의 실제 Path를 리턴 
+getResource(String path) : 주어진 Path 에 해당되는 자원의 URL을 리턴 
+log(String msg) : log file 에 메시지를 기록 
+log(String message, Throwable throwable) 
+
+RequestDispatcher 인터페이스 : 클라이언트의 요청을 다른 자원(서블릿,JSP 등)으로 전달하기 위해서 사용 
+forward(ServletRequest req, ServletResponse res) : 클라이언트의 요청을 다른 자원으로 전달 
+include(ServletRequest req, ServletResponse res) : 다른 자원의 내용을 ServletResponse에 포함 
+
+
+
+* ServletRequest 인터페이스 : 서블릿에 대한 클라이언트의 요청 정보을 담고 있음. 
+
+setAttribute(String name, Object o) : 객체를 주어진 이름으로 저장 
+getAttribute(String name) : 주어진 이름의 저장된 데이터를 리턴 
+removeAttribute(String name) : 주어진 이름의 데이터를 삭제 
+getInputStream() : 클라이언트 요청의 바디에 있는 바이너리 테이터를 읽기 위한 입력 스트림 리턴 
+getParameter(String name) : 클라이언트의 요청에 포함되어 있는 주어진 이름의 파라미터 값을 리턴 
+getParameterNames() : 클라이언트의 요청에 포함되어 있는 모든 파라미터 이름을 Enumeration 타입으로 리턴 
+getParameterValues(String name) : 주어진 이름의 파라미터 값을 String 배열로 리턴, 동일한 이름으로 여러 값이 있을 경우 사용 
+
+
+
+* HttpServletRequest 인터페이스 : ServletReqeust 상속 
+
+getCookie() : 브라우저가 전달한 쿠키 배열을 리턴 
+getSession() : 현재 세션(HttpSession)을 리턴 
+getSession(boolean created) : 현재 세션을 리턴, 만약 세션이 없는 경우 created 가 true 이면 세션을 생성후 리턴 
+
+
+
+* ServletResponse 인터페이스 : 클라이언트에 응답을 보내기 위해 사용 
+
+getOutputStream() : 응답에 바이너리 데이터를 전송하기 위한 출력 스트림(ServletOutputStream) 리턴 
+getWriter() : 응답에 문자 데이터를 전송하기 위한 출력 스트림(PrintWriter) 리턴 
+setContentType(String type) : 클라이언트로 전달되는 내용의 MIME 타입을 설정 
+
+
+
+* HttpServletResponse 인터페이스 : ServletResponse 인터페이스를 상속, HTTP 응답을 클라이언트에 전송하는 역할
+
+addCookie(Cookie cookie) : 응답에 쿠키를 전송 
+sendRedirect(String location) : 주어진 URL로 리다이렉트 
+
+client
+was server : web application server 
+web container : tomcat
+
+req or resp
+
+dd xml
+배치서술자
+
+         <servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>Chapter1.HelloWorld1</servlet-class>
+	</servlet>
+        <servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/t1.do</url-pattern>
+	</servlet-mapping>
+
+ 지시자 (directive)
+<%@ %>
+
+  - 스크립틀릿 (scriptlet)
+<% %>
+
+  - 익스프레션 (expression)
+<%= %>
+
+
+
+웹서버 
+
+톰캣 웹컨테이너 -> 데이터를 처리 관리 하기위해 만들어진 톰캣(서버에서 통신처리만 하고 프로그램을 통해서 데이터를 관리 처리하기위해 만들어짐)
+
+라이브러리 입력 출력
+
+웹프로그램 =servlet
+            serv + let
+서버어플리케이션+ 조각
+
+servlet API 
+
+WEB-INF 
+
+http://localhost/aa/WEB_INF/nana.txt
+                    공개하지 않는 정보나 데이터를 WEB-INF에 포함한다.
+class 파일을 url 에 입력하는게 아니다
+아래 xml파일에 매핑 시켜 로드한다.
+web.xml 
+servlet
+servlet-name 
+servlet-class
+servlet-mapping
+servlet-name
+url-pattern
+
+아래 servlet-mapping의 servlet-name과 위에 servlet 안에 servlet-name이 같아야한다.
+servlet-class는 숨겨야 한다.
+extends HttpServlet
+을 상속해야 servlet 파일 , 프로그램이 된다.
+404 파일이나 리소스를 찾을 수 없다는 에러
+name 속성
+값을 전달하는 방법 
+form method="post" or method="get"  서블릿 클래스를 (xml로 매핑된) action으로 매핑한다.
+
+action 에 상대적주소를 입력한다.
+
+string x= request.getparameter("x");
+string y= request.getparameter("y");//name속성의 값을 입력한다(파라미터를)
+
+printwrite out = response.getwrite();
+
+function : static method
+
+method : instance method
+
+iterator ->hasNext    ->  next
+          boolean type    value
+
+iterator while문 반복문을 사용하여 리스트 객체를 쉽게 자료를 가져온다
+interface 객체임..
+
