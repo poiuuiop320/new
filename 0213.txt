@@ -1,0 +1,535 @@
+﻿webcontent 에 저장 html,jsp,javascript,css
+
+aptana 설치
+
+http://download.aptana.com/studio3/plugin/install
+
+label for = id 
+
+input type text,password,radio,checkbox
+select name option value
+optgroup option
+textarea rows cols
+input summit reset 
+
+form 방식
+method 
+get
+post 
+
+action 
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+page directed 지시자
+
+contentType="text/html;  //mime type
+https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+
+request name값을 가져옴
+https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/websocket/WsHttpServletRequestWrapper.html
+
+request.setCharactoerEncoding("utf-8);
+request.getParameter();
+
+String[] food=request.getParameterValues("food");
+String result="";
+for(String index:food)
+{
+ result +=index+", ";
+}
+
+servlet 웹상에서 동작하는 자바소스
+
+http://localhost:8080/test/test.jsp
+
+web application
+
+eclipse
+ java resources
+  java servlet
+ webcontent
+   jsp,html,javascript,css 웹에 공개
+
+   web-inf 환경정보
+      lib  jar 
+      web.xml 배치서술사 deploy descriptor 
+
+xml 
+dtd 타입에대한 언급없음
+schema 
+
+
+
+printwriter out=response.getwriter();
+out.print("");
+
+
+client
+was server : web application server 
+web container : tomcat
+
+req or resp
+
+dd xml
+배치서술자
+
+         <servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>Chapter1.HelloWorld1</servlet-class>
+	</servlet>
+        <servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/t1.do</url-pattern>
+	</servlet-mapping>
+
+테이블 생성삭제구조변경
+사용자 생성 삭제
+tablespace
+테이블 제약조건 생성 변경 삭제
+롤생성 사용자권한 주기
+
+
+ip
+  고정 ip
+  유동 ip 
+dns 
+ a클래스 대형
+ b클래스 중형
+ c클래스 소형
+클라이언트 스크립트
+
+서버스크립트 기술
+컴파일 할 필요없이 자료를 다룸
+
+tablespace
+users
+v$
+
+경로를 일치시킬 필요없다.
+  <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>com.kic.HelloWorld</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/test/t.pwy</url-pattern>
+  </servlet-mapping>
+
+response.setContentType("text/html;charset=utf-8");
+PrintWriter out=response.getWriter();
+
+aa.jsp-> aa_jsp.java ->aa_jsp.class
+C:\Users\kitcoop\Desktop\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\D0215\org\apache\jsp
+서블릿 자바클래스로 컴파일
+C:\Users\kitcoop\Desktop\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\D0215\WEB-INF\classes\com\kic
+
+웹서버에서는 요청만 응답
+서블릿컨테이너에 저장되어 있는 상태에서 데이터를 보내준다.
+aa.jsp-> aa_jsp.java ->aa_jsp.class 메모리화 시킴
+요청을 하면 응답을 하는데 컨테이너에서 데이터(서블릿으로)를 바꾸고 객체화 시켜서 데이터를 넘겨준다.
+
+orcl standrad edition
+xe   express edition
+
+java                  -> jar
+webapplication archive->war
+
+project_name.war deploy 배포 
+수동배포
+C:\apache-tomcat-8.0.41\webapps
+안에 war 파일 붙여넣기
+cmd->startup
+
+web
+  jsp css js
+ WEB-INF
+   classes .클래스 저장
+   lib... 라이브러리저장(*.jar)
+   web.xml
+
+페이지 지시어
+페이지 형식
+에러페이지
+태그라이브러리
+패키지 임포트
+
+..html
+<form method="post" action="result.pwy">
+
+..jsp
+<% 
+
+String id=request.getParameter("id");
+String pwd=request.getParameter("pwd");
+%>
+이름<%=id %> 패스워드<%=pwd %>
+
+get
+post 
+method 방식의 두가지 방법
+..jsp
+request.setCharacterEncoding("utf-8");
+..java
+request.setCharacterEncoding("utf-8");
+response.setContentType("text/html; charset=utf-8");
+컨테이너는 클라이언트에게서 받아온 ?만든다
+
+<!--배치서술자(Deploy Descriptor) : DD-->
+
+html xml jsp java servlet
+
+response request 객체를 메소드에
+
+servlet extends httpservlet
+
+server.xml
+web.xml 
+server는 포트설정xml
+web은 모든프로젝트에 공통으로 적용되는 환경 설정하기 위해 인식
+
+init 처음 클라이언트의 접속
+service 
+destoy 서버가 종료시 메모리 해제
+
+service()
+doget()
+
+
+<welcome-file>Test.jsp</welcome-file>
+제일 위에
+
+
+(" p"):
+generic servpe
+init->servie ->dostroy
+
+
+sevlet
+sevlet-mapping
+
+extends HttpServlet
+
+init  destroy service
+        => do get , do get
+
+배포 서술자 (DD, Deployment Descriptor) 
+
+서블릿 라이프 사이클
+get 요청 헤더가 없음
+
+post 파라미터가 없음
+
+인터페이스에서 객체 넘길때
+
+<select name='loc' multiple>
+
+html view
+java 
+jsp
+
+req.setCharacterEncoding("utf-8");
+
+resp.setContentType("text/html;charset=utf-8");
+PrintWriter out= resp.getWriter();
+
+local
+localport
+serverport
+remoteport
+path
+uri
+url
+
+getbyte
+getContextPath();
+getLocalAddr();
+getContentType();
+getPathInfo();
+getServerName();
+getRequestURI();
+getRequestURL();
+getLocalPort();
+getServerPort();
+getRemotePort();
+getRemoteHost();
+getParameter();
+getParameterValues();
+
+스트립트 요소
+ 지시어
+    page지시어 include지시어 taglib 지시어
+     디렉티브 import
+    <%@page import=""%>
+    <%@ 
+    
+      %>
+
+ 선언
+    <%!  
+    
+     %>
+   인스턴스 변수 ,메서드 선언
+ 스크립트릿
+    <%  
+    
+     %>
+     자바소스를 작성 할 수 있다.
+ 표현식
+     <%=
+    
+ 
+      %>
+
+C:\Users\kitcoop\Desktop\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\D0216\org\apache\jsp
+
+_jspService
+
+
+
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+
+<%
+ArrayList <String>arr= new ArrayList<String>();
+
+Iterator<String> ita=arr.iterator();
+while(ita.hasNext())
+out.print(ita.next()+"<br>");
+%>
+
+<%@page
+ import
+ 
+%>
+
+<%@include
+
+ %>
+
+<link href="style/main.css" rel="stylesheet" type="text/css">
+
+<%@ include file="" %>
+<%@ include ctrl+space file
+
+include derective
+<%@ include file=""%> 방식 자바한파일에 컴파일
+include action
+
+C:\Users\kitcoop\Desktop\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\D0216\org\apache\jsp\include
+
+
+<% out.print("자바소스를 작성할 수 있습니다. scriptlet입니다.<br>");%>
+<%="안녕하세요 표현식입니다." %>
+..jsp
+response.setContentType("text/html; charset=utf-8");
+request.setCharacterEncoding("utf-8");
+
+String name=request.getParameter("name");
+String idnumber=request.getParameter("idnumber");
+String gn=idnumber.substring(6,7);
+String gen="";
+if(gn.equals("1")||gn.equals("3"))
+	gen="남";
+else
+	gen="여";
+
+GregorianCalendar gc=new GregorianCalendar();
+int now = gc.get(Calendar.YEAR);
+int age;
+if(gn.equals("1")||gn.equals("2"))
+	{
+    age= now-Integer.parseInt("19"+idnumber.substring(0,2));
+	}
+else
+{
+	age=now-Integer.parseInt("20"+idnumber.substring(0,2));
+}
+
+%>
+
+이름<%=name %><br>
+주민번호<%=idnumber %><br>
+성별<%=gen %><br>
+나이<%=age %>
+response.sendredirect("test.jsp");
+response.sendRedirect("NewFile2.jsp");
+
+response.sendRedirect("NewFile2.jsp?test=hong");
+<%
+out.print("NewFile2.jsp");
+String v=request.getParameter("test");
+
+%><br>
+<%out.print(v); %>
+
+model1
+   java
+ jsp->jsp
+model2
+ mvc
+
+ 클래스파일에 getter setter 셋팅
+<jsp:useBean id="dto" class="com.kic.DTO.MemberDTO"> 
+</jsp:useBean>
+
+MemberDTO dto=new MemberDTO();
+dto.setName(request.getParameter("name");
+
+<%
+request.setCharacterEncoding("utf-8");
+%>
+
+<jsp:useBean id="dto" class="com.kic.DTO.MemberDTO"></jsp:useBean>
+<jsp:setProperty property="*" name="dto"/>
+setProperty 한번에 넘김 dto 자바에
+
+<jsp:getProperty property="name" name="dto"/>
+<jsp:getProperty property="addr" name="dto"/>
+<jsp:getProperty property="age" name="dto"/>
+가져올 경우 getProperty 
+
+system/kic1004
+
+ create user hong identified by 123
+ default tablespace users
+ temporary tablespace temp
+ quota 20m on users;
+
+grant resource,connect to hong;
+conn hong/123
+
+create table borad
+(
+ num number(6) constraint pk_num primary key,
+title varchar2(50) constraint nn_title not null,
+content varchar2(100),
+writer varchar2(20)
+)
+/
+create sequence se1;
+
+insert into board value(se1.nextval,'a','안녕하세요','홍길동');
+
+
+C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+
+ojdbc6_g복사해서 WEB-INF/lib안에 복사한다.
+
+import java.sql.Connection;
+
+public boardView()
+
+private Connection getConnection()
+
+Class.forName(className)
+
+
+oracle.jdbc.OracleDriver
+
+jdbc:oracle:thin:@localhost:1521:XE
+
+Class.forName("oracle.jdbc.OracleDriver");
+
+try{
+
+}
+catch(){}
+
+DriverManager.getConnection(url,user,pws)
+
+catch(ClassNotFoundException e){System.out.println(e);}
+
+conn=DriverManager.getConnection(url, user, password);
+
+Connection conn=null;
+
+catch(SQLException e){System.out.println(e);}
+
+return conn;
+
+public boardView()
+ {
+	 Connection conn=null;
+ }
+
+try{
+		 
+	 }
+
+try{   conn=getConnection();  }
+
+
+PreparedStatement pstmt=null
+
+pstmt=conn.prepareStatement(sql)
+
+catch(SQLException e){System.out.println(e);}
+
+StringBuilder sb=new StringBuilder();
+sb.append(" select     ");
+sb.append("  num       ");
+sb.append("  ,title    ");
+sb.append("  ,content  ");
+sb.append("  ,writer   ");
+sb.append(" from board ");
+
+pstmt=conn.prepareStatement(sb.toString());
+
+
+정적 callable statement excuteupdate insert update delete
+
+동적 prepared statement excutequery select from where
+
+pstmt.executeQuery();
+
+ResultSet rs=null;
+
+rs=pstmt.executeQuery();
+
+finally
+{
+ if(rs!=null)try{rs.close();}catch(Exception e){}
+ if(pstmt!=null)try{pstmt.close();}catch(SQLException e){}
+ if(conn!=null)try{conn.close();}catch(SQLException e){}
+}
+
+pstmt=conn.prepareStatement(sb.toString()); tostring 으로 들어온다..
+
+for안됨
+
+while문으로 
+while(rs.next())
+{
+
+}
+
+ArrayList<E>
+
+ArrayList<MemberDTO>
+
+ArrayList<MemberDTO> arr=new ArrayList<>();
+
+MemberDTO dto=new MemberDTO();
+
+public class BoardDTO {
+private int num;
+private String title;
+private String content;
+private String writer;
+
+getters setters
+
+ArrayList<BoardDTO> arr=new ArrayList<>();
+
+BoardDTO dto=new BoardDTO();
+
+dto.setNum(rs.getInt("num"));
+dto.setTitle(rs.getString("title"));
+dto.setContent(rs.getString("content"));
+dto.setWriter(rs.getString("writer"));
+arr.add(dto);
+
+public List<BoardDTO> boardView()
+
+return arr;
+
