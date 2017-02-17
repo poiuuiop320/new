@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+
+table{
+	
+	width:800px;
+	
+	
+}
+thead tr td{
+	border-bottom: 1px solid silver;
+}
+tr td,tr td{
+	border-bottom: 1px solid silver;
+}
+ul{
+	list-style: none;
+}
+img{
+	text-align: right;
+}

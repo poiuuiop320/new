@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+ul li{
+	
+	list-style: none;
+	
+}
+li label{
+	margin:0 auto;
+}

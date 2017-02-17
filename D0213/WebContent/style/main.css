@@ -1,0 +1,16 @@
+@CHARSET "utf-8";
+
+
+table{
+	
+	witdh:400px;
+	border-collapse: collapse;
+}
+thead tr td{
+	border:1px solid red;
+}
+tr td,tr td{
+	border:1px solid silber;
+}
+
+

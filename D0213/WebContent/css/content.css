@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+ul li{
+	
+	list-style: none;
+	border: 1px solid blue;	width: 600px;
+}
+div{
+	
+}
+#wrap{border:1px solid liteblue;
+width:580px;}
+*{
+	margin:0 auto;
+padding:0 auto;}
+
+input{
+	border:none;
+}
