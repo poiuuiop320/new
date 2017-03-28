@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	<bean id="m2" class="com.kic.map.Map2">
+		<property name="m2">
+			<map>
+				<entry>
+				 <key>
+				  <value>p1</value>
+				 </key>
+				 <bean class="com.kic.set.MemberDTO">
+				  <property name="name" value="park"></property>
+				  <property name="age" value="20"></property>
+				 </bean><!--String Integer가아닌 MemberDTO 이라서 Bean정보임 !value! 가 아닌   -->
+				</entry>
+				<entry>
+				 <key>
+				  <value>p2</value>
+				 </key>
+				 <bean class="com.kic.set.MemberDTO">
+				  <property name="name" value="kim"></property>
+				  <property name="age" value="25"></property>
+				 </bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

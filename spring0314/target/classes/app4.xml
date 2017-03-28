@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+<bean id="a1" class="com.kic.sample4.Person">
+<constructor-arg>
+ <value>hong</value>
+</constructor-arg>
+<constructor-arg>
+<value>seoul</value>
+</constructor-arg>
+</bean>
+<bean id="a2" class="com.kic.sample4.Person">
+<constructor-arg value="kim"></constructor-arg>
+<constructor-arg value="20" type="int"></constructor-arg>
+
+</bean>
+<bean id="a3" class="com.kic.sample4.Person" p:name="park" p:addr="seoul" p:age="50"></bean>
+<bean id="a4" class="com.kic.sample4.Person" c:name="haha" c:age="22" ></bean>
+</beans>
